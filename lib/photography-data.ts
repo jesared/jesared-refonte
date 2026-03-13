@@ -48,12 +48,12 @@ export const photographyCategories: PhotographyCategory[] = [
 
 export const galleryByCategory: Record<PhotographyCategory["slug"], PhotoItem[]> = {
   discotheque: [
-    { src: "/photographie/categories/discotheque.svg", alt: "Projecteurs et fumée sur le dancefloor" },
-    { src: "/photographie/categories/discotheque.svg", alt: "DJ set en lumière violette" },
-    { src: "/photographie/categories/discotheque.svg", alt: "Public en contre-jour néon" },
-    { src: "/photographie/categories/discotheque.svg", alt: "Scène club ambiance stroboscope" },
-    { src: "/photographie/categories/discotheque.svg", alt: "Portrait nocturne en salle" },
-    { src: "/photographie/categories/discotheque.svg", alt: "Foule en mouvement sous lasers" },
+    { src: "/photos/discotheque/photo1.jpg", alt: "Projecteurs et fumée sur le dancefloor" },
+    { src: "/photos/discotheque/photo2.jpg", alt: "DJ set en lumière violette" },
+    { src: "/photos/discotheque/photo3.jpg", alt: "Public en contre-jour néon" },
+    { src: "/photos/discotheque/photo4.jpg", alt: "Scène club ambiance stroboscope" },
+    { src: "/photos/discotheque/photo5.jpg", alt: "Portrait nocturne en salle" },
+    { src: "/photos/discotheque/photo1.jpg", alt: "Foule en mouvement sous lasers" },
   ],
   sport: [
     { src: "/photographie/categories/sport.svg", alt: "Départ explosif sur piste" },
