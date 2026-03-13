@@ -29,13 +29,9 @@ export function GalleryModal({ photos, activeIndex, onClose, onNavigate }: Galle
     function handleKeyDown(event: KeyboardEvent) {
       if (activeIndex === null) return;
 
-      if (event.key === "Escape") {
-        onClose();
-      } else if (event.key === "ArrowLeft") {
-        goToPrevious();
-      } else if (event.key === "ArrowRight") {
-        goToNext();
-      }
+      if (event.key === "Escape") onClose();
+      if (event.key === "ArrowLeft") goToPrevious();
+      if (event.key === "ArrowRight") goToNext();
     }
 
     window.addEventListener("keydown", handleKeyDown);
@@ -45,8 +41,10 @@ export function GalleryModal({ photos, activeIndex, onClose, onNavigate }: Galle
   return (
     <div
       aria-hidden={!activePhoto}
-      className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 sm:p-8 ${
-        activePhoto ? "pointer-events-auto bg-black/90 opacity-100" : "pointer-events-none bg-black/0 opacity-0"
+      className={`fixed inset-0 z-50 flex items-center justify-center p-3 transition-all duration-300 sm:p-8 ${
+        activePhoto
+          ? "pointer-events-auto bg-black/85 opacity-100 backdrop-blur-sm"
+          : "pointer-events-none bg-black/0 opacity-0"
       }`}
       onClick={onClose}
     >
@@ -54,7 +52,7 @@ export function GalleryModal({ photos, activeIndex, onClose, onNavigate }: Galle
         role="dialog"
         aria-modal="true"
         aria-label={activePhoto ? activePhoto.alt : "Aperçu photo"}
-        className={`relative h-full w-full max-w-7xl overflow-hidden rounded-2xl border border-white/10 bg-black transition-transform duration-300 ${
+        className={`relative h-full w-full max-w-7xl overflow-hidden rounded-2xl border border-white/15 bg-black/95 shadow-2xl transition-transform duration-300 ${
           activePhoto ? "scale-100" : "scale-95"
         }`}
         onClick={(event) => event.stopPropagation()}
@@ -62,10 +60,10 @@ export function GalleryModal({ photos, activeIndex, onClose, onNavigate }: Galle
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 z-20 rounded-md bg-black/55 px-3 py-1 text-lg font-medium text-white transition hover:bg-black/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          className="absolute right-4 top-4 z-20 rounded-full bg-black/55 px-3 py-2 text-sm font-medium text-white transition hover:bg-black/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
           aria-label="Fermer la galerie"
         >
-          ×
+          Fermer
         </button>
 
         {activePhoto && (
@@ -86,6 +84,10 @@ export function GalleryModal({ photos, activeIndex, onClose, onNavigate }: Galle
             >
               ›
             </button>
+
+            <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-black/45 px-4 py-1.5 text-xs tracking-wide text-white/90">
+              {activeIndex + 1} / {photos.length}
+            </div>
 
             <Image src={activePhoto.src} alt={activePhoto.alt} fill className="object-contain" sizes="100vw" priority />
           </>
