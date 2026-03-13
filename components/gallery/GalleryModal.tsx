@@ -14,6 +14,7 @@ type GalleryModalProps = {
 
 export function GalleryModal({ photos, activeIndex, onClose, onNavigate }: GalleryModalProps) {
   const activePhoto = activeIndex !== null ? photos[activeIndex] : null;
+  const currentIndex = activeIndex ?? 0;
 
   const goToPrevious = useCallback(() => {
     if (activeIndex === null) return;
@@ -86,7 +87,7 @@ export function GalleryModal({ photos, activeIndex, onClose, onNavigate }: Galle
             </button>
 
             <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-black/45 px-4 py-1.5 text-xs tracking-wide text-white/90">
-              {activeIndex + 1} / {photos.length}
+              {currentIndex + 1} / {photos.length}
             </div>
 
             <Image src={activePhoto.src} alt={activePhoto.alt} fill className="object-contain" sizes="100vw" priority />
