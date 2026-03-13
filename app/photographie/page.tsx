@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 import { PageContainer } from "@/components/layout";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui";
@@ -79,6 +82,8 @@ const galleryItems = [
 ];
 
 export default function PhotographiePage() {
+  const [selectedImage, setSelectedImage] = useState<(typeof galleryItems)[number] | null>(null);
+
   return (
     <PageContainer>
       <section className="flex min-h-[48vh] flex-col items-center justify-center gap-5 py-16 text-center sm:py-20">
@@ -102,7 +107,13 @@ export default function PhotographiePage() {
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {galleryItems.map((item) => (
-            <Link key={item.title} href={item.href} className="group relative block overflow-hidden rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+            <button
+              key={item.title}
+              type="button"
+              onClick={() => setSelectedImage(item)}
+              className="group relative block overflow-hidden rounded-xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              aria-label={`Ouvrir ${item.title} en plein écran`}
+            >
               <div className="relative aspect-[4/3]">
                 <Image
                   src={item.image}
@@ -117,10 +128,58 @@ export default function PhotographiePage() {
                   <p className="mt-1 text-sm font-medium sm:text-base">{item.title}</p>
                 </div>
               </div>
-            </Link>
+            </button>
           ))}
         </div>
       </section>
+
+      <div
+        aria-hidden={!selectedImage}
+        className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 sm:p-8 ${
+          selectedImage
+            ? "pointer-events-auto bg-black/80 opacity-100"
+            : "pointer-events-none bg-black/0 opacity-0"
+        }`}
+        onClick={() => setSelectedImage(null)}
+      >
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={selectedImage ? `Aperçu de ${selectedImage.title}` : "Aperçu photo"}
+          className={`relative h-full w-full max-w-6xl overflow-hidden rounded-xl bg-background transition-all duration-300 ${
+            selectedImage ? "scale-100" : "scale-95"
+          }`}
+          onClick={(event) => event.stopPropagation()}
+        >
+          <button
+            type="button"
+            onClick={() => setSelectedImage(null)}
+            className="absolute right-3 top-3 z-10 rounded-md bg-black/55 px-3 py-1 text-lg font-semibold text-white transition-colors hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            aria-label="Fermer la photo"
+          >
+            ×
+          </button>
+
+          {selectedImage && (
+            <>
+              <Image
+                src={selectedImage.image}
+                alt={selectedImage.title}
+                fill
+                priority
+                className="object-contain"
+                sizes="100vw"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-5 text-white">
+                <p className="text-xs uppercase tracking-[0.14em] text-white/75">
+                  {selectedImage.category}
+                </p>
+                <p className="mt-1 text-base font-medium sm:text-lg">{selectedImage.title}</p>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
 
       <section className="border-t border-border/60 py-14 sm:py-16">
         <div className="mb-8 text-center sm:mb-10">
