@@ -1,24 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafafa;
-  --foreground: #18181b;
-  --font-sans: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --background: #f7f8fa;
+  --foreground: #111827;
+  --muted-foreground: #4b5563;
+  --surface: #ffffff;
+  --border: #e5e7eb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
 }
 
 * {
-  @apply border-zinc-200;
+  border-color: var(--border);
+}
+
+html,
+body {
+  min-height: 100%;
 }
 
 body {
-  min-height: 100vh;
-  background: var(--background);
+  margin: 0;
+  background: radial-gradient(circle at top, #ffffff 0%, var(--background) 50%);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
 }
