@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { PhotoItem } from "@/lib/photography-data";
 
@@ -13,6 +13,17 @@ type PhotoGalleryProps = {
 export function PhotoGallery({ photos, categoryName }: PhotoGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const activePhoto = activeIndex !== null ? photos[activeIndex] : null;
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setActiveIndex(null);
+      }
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   return (
     <>
@@ -43,7 +54,7 @@ export function PhotoGallery({ photos, categoryName }: PhotoGalleryProps) {
         aria-hidden={!activePhoto}
         className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 sm:p-8 ${
           activePhoto
-            ? "pointer-events-auto bg-black/85 opacity-100"
+            ? "pointer-events-auto bg-black/90 opacity-100"
             : "pointer-events-none bg-black/0 opacity-0"
         }`}
         onClick={() => setActiveIndex(null)}
@@ -67,7 +78,14 @@ export function PhotoGallery({ photos, categoryName }: PhotoGalleryProps) {
           </button>
 
           {activePhoto && (
-            <Image src={activePhoto.src} alt={activePhoto.alt} fill className="object-contain" sizes="100vw" priority />
+            <Image
+              src={activePhoto.src}
+              alt={activePhoto.alt}
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
+            />
           )}
         </div>
       </div>
