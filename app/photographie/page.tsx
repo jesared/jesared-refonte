@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { PageContainer } from "@/components/layout";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui";
@@ -81,8 +81,42 @@ const galleryItems = [
   },
 ];
 
+const galleryFilters = ["Tous", "Discothèque", "Sport", "Événements", "Produits"] as const;
+
+type GalleryItem = (typeof galleryItems)[number];
+type GalleryFilter = (typeof galleryFilters)[number];
+
 export default function PhotographiePage() {
-  const [selectedImage, setSelectedImage] = useState<(typeof galleryItems)[number] | null>(null);
+  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+  const [activeFilter, setActiveFilter] = useState<GalleryFilter>("Tous");
+  const [isFiltering, setIsFiltering] = useState(false);
+
+  const filteredGalleryItems = useMemo(
+    () =>
+      activeFilter === "Tous"
+        ? galleryItems
+        : galleryItems.filter((item) => item.category === activeFilter),
+    [activeFilter],
+  );
+
+  useEffect(() => {
+    if (!isFiltering) {
+      return;
+    }
+
+    const timeout = window.setTimeout(() => setIsFiltering(false), 180);
+
+    return () => window.clearTimeout(timeout);
+  }, [isFiltering]);
+
+  const handleFilterChange = (filter: GalleryFilter) => {
+    if (filter === activeFilter) {
+      return;
+    }
+
+    setIsFiltering(true);
+    setActiveFilter(filter);
+  };
 
   return (
     <PageContainer>
@@ -105,8 +139,30 @@ export default function PhotographiePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {galleryItems.map((item) => (
+        <div className="mb-6 flex flex-wrap items-center justify-center gap-2 sm:mb-8">
+          {galleryFilters.map((filter) => (
+            <button
+              key={filter}
+              type="button"
+              onClick={() => handleFilterChange(filter)}
+              className={`rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                filter === activeFilter
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border bg-background text-foreground hover:border-primary/60"
+              }`}
+              aria-pressed={filter === activeFilter}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
+
+        <div
+          className={`grid grid-cols-1 gap-4 transition-all duration-200 md:grid-cols-2 lg:grid-cols-3 ${
+            isFiltering ? "translate-y-1 opacity-60" : "translate-y-0 opacity-100"
+          }`}
+        >
+          {filteredGalleryItems.map((item) => (
             <button
               key={item.title}
               type="button"
