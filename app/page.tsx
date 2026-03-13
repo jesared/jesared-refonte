@@ -61,8 +61,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="presentation" className="grid gap-6 border-y border-border/60 py-14 sm:grid-cols-2 sm:gap-8">
-        <SectionTitle overline="Présentation">Un site vitrine pensé comme un point d’ancrage.</SectionTitle>
+      <section id="photographie" className="grid gap-6 border-y border-border/60 py-14 sm:grid-cols-2 sm:gap-8">
+        <SectionTitle overline="Photographie">Des images qui capturent l’émotion et la lumière.</SectionTitle>
         <p className="text-base leading-relaxed text-muted-foreground sm:pt-8">
           Cette homepage est conçue pour aller à l’essentiel : une identité visuelle
           sobre, une hiérarchie claire et des accès rapides vers chaque domaine.
@@ -70,9 +70,9 @@ export default function Home() {
         </p>
       </section>
 
-      <section id="univers" className="py-14 sm:py-16">
+      <section id="projets" className="py-14 sm:py-16">
         <div className="mb-8">
-          <SectionTitle overline="Mes univers">Explorez les espaces clés</SectionTitle>
+          <SectionTitle overline="Projets">Explorez les réalisations en cours</SectionTitle>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">
