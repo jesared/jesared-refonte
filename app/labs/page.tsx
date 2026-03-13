@@ -1,7 +1,8 @@
 import Link from "next/link";
 
 import { PageContainer } from "@/components/layout";
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, SectionTitle } from "@/components/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, SectionTitle } from "@/components/ui";
+import { cn } from "@/lib/utils";
 
 const projects = [
   {
@@ -51,9 +52,15 @@ export default function LabsPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="mt-auto">
-                <Button asChild className="w-full sm:w-auto">
-                  <Link href={project.href}>Voir le projet</Link>
-                </Button>
+                <Link
+                  href={project.href}
+                  className={cn(
+                    "inline-flex h-9 w-full items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:w-auto",
+                    "bg-primary text-primary-foreground hover:bg-primary/90"
+                  )}
+                >
+                  Voir le projet
+                </Link>
               </CardContent>
             </Card>
           ))}
