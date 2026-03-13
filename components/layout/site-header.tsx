@@ -4,10 +4,10 @@ import { PageContainer } from "@/components/layout/page-container";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const navigation = [
-  { label: "Accueil", href: "#top" },
-  { label: "Photographie", href: "#photographie" },
-  { label: "Projets", href: "#projets" },
-  { label: "Contact", href: "#contact" },
+  { label: "Accueil", href: "/" },
+  { label: "Photographie", href: "/photographie" },
+  { label: "Labs", href: "/labs" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function SiteHeader() {
@@ -16,7 +16,7 @@ export function SiteHeader() {
       <PageContainer>
         <div className="flex min-h-18 items-center justify-between gap-4 py-3">
           <Link
-            href="#top"
+            href="/"
             className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card px-3 py-1.5 text-sm font-semibold tracking-tight shadow-sm transition-colors hover:bg-accent sm:text-base"
           >
             <span className="h-2.5 w-2.5 rounded-full bg-foreground/80" aria-hidden="true" />
