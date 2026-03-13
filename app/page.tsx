@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { PageContainer } from "@/components/layout";
 import {
   Card,
@@ -14,25 +16,19 @@ const univers = [
     title: "Photographie",
     description:
       "Séries photo et reportages visuels pour raconter des histoires sensibles et lumineuses.",
-    href: "#photographie",
+    href: "/photographie",
   },
   {
-    title: "Développement web",
+    title: "Labs",
     description:
-      "Conception de sites performants, responsives et élégants, pensés pour une expérience fluide.",
-    href: "#developpement-web",
+      "Découvrez mes projets web, expérimentations et outils construits pour des expériences fluides.",
+    href: "/labs",
   },
   {
-    title: "Tennis de table",
+    title: "Contact",
     description:
-      "Compétition, entraînement et partage autour d'une pratique exigeante et passionnante.",
-    href: "#tennis-de-table",
-  },
-  {
-    title: "Projets",
-    description:
-      "Sélection de réalisations personnelles et professionnelles, en cours ou déjà publiées.",
-    href: "#projets",
+      "Parlons de votre idée, d'une collaboration ou d'un besoin en création de site moderne.",
+    href: "/contact",
   },
 ];
 
@@ -40,20 +36,20 @@ const projetsRecents = [
   {
     title: "PingQuest",
     description:
-      "Plateforme interactive dédiée au tennis de table avec un parcours ludique et une expérience claire sur tous les écrans.",
-    href: "#",
+      "Plateforme interactive dédiée au tennis de table avec une expérience claire sur tous les écrans.",
+    href: "/labs",
   },
   {
-    title: "Refonte site Trophée François Grieder",
+    title: "Trophée François Grieder",
     description:
-      "Refonte complète du site de l'événement pour moderniser l'image, structurer les contenus et améliorer les performances.",
-    href: "#",
+      "Refonte du site du tournoi et création d'outils web pour simplifier l'organisation.",
+    href: "/labs",
   },
   {
-    title: "Site Cham'élo Couture",
+    title: "Cham'élo Couture",
     description:
-      "Création d'un site vitrine élégant valorisant les créations sur mesure, avec une navigation simple et immersive.",
-    href: "#",
+      "Site vitrine moderne pour valoriser les créations sur mesure avec une navigation épurée.",
+    href: "/labs",
   },
 ];
 
@@ -75,31 +71,28 @@ export default function Home() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 pt-2">
-          <a
-            href="#projets"
+          <Link
+            href="/labs"
             className={cn(
               "inline-flex h-10 items-center justify-center rounded-md px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
               "bg-primary text-primary-foreground hover:bg-primary/90"
             )}
           >
             Voir mes projets
-          </a>
-          <a
-            href="#contact"
+          </Link>
+          <Link
+            href="/contact"
             className={cn(
               "inline-flex h-10 items-center justify-center rounded-md border bg-background px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
               "hover:bg-accent hover:text-accent-foreground"
             )}
           >
             Contact
-          </a>
+          </Link>
         </div>
       </section>
 
-      <section
-        id="photographie"
-        className="grid gap-6 border-y border-border/60 py-14 sm:grid-cols-2 sm:gap-8"
-      >
+      <section className="grid gap-6 border-y border-border/60 py-14 sm:grid-cols-2 sm:gap-8">
         <SectionTitle overline="Photographie">
           Des images qui capturent l’émotion et la lumière.
         </SectionTitle>
@@ -110,12 +103,12 @@ export default function Home() {
         </p>
       </section>
 
-      <section id="univers" className="py-14 sm:py-16">
+      <section className="py-14 sm:py-16">
         <div className="mb-8">
           <SectionTitle overline="Univers">Découvrez mes univers</SectionTitle>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {univers.map((item) => (
             <Card
               key={item.title}
@@ -128,31 +121,19 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <a
+                <Link
                   href={item.href}
                   className="inline-flex items-center text-sm font-medium text-foreground/80 transition-colors group-hover:text-foreground"
                 >
                   Voir l’univers →
-                </a>
+                </Link>
               </CardContent>
             </Card>
           ))}
         </div>
       </section>
 
-      <section id="developpement-web" className="border-t border-border/60 py-14 sm:py-16">
-        <SectionTitle overline="Développement web">
-          Des expériences rapides, accessibles et orientées conversion.
-        </SectionTitle>
-      </section>
-
-      <section id="tennis-de-table" className="border-t border-border/60 py-14 sm:py-16">
-        <SectionTitle overline="Tennis de table">
-          Rigueur, précision et progression continue à la table.
-        </SectionTitle>
-      </section>
-
-      <section id="projets" className="border-t border-border/60 py-14 sm:py-16">
+      <section className="border-t border-border/60 py-14 sm:py-16">
         <div className="mb-8">
           <SectionTitle overline="Projets récents">
             Une sélection de réalisations récentes.
@@ -169,7 +150,7 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <a
+                <Link
                   href={projet.href}
                   className={cn(
                     "inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
@@ -177,19 +158,11 @@ export default function Home() {
                   )}
                 >
                   Voir le projet
-                </a>
+                </Link>
               </CardContent>
             </Card>
           ))}
         </div>
-      </section>
-
-      <section id="contact" className="border-t border-border/60 py-14 text-center sm:py-16">
-        <SectionTitle overline="Contact">Parlons de votre prochain projet</SectionTitle>
-        <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-          Une idée, une collaboration ou une question ? Écrivez-moi et construisons
-          ensemble une expérience simple, impactante et durable.
-        </p>
       </section>
     </PageContainer>
   );
