@@ -1,6 +1,5 @@
 import { PageContainer } from "@/components/layout";
 import {
-  Button,
   Card,
   CardContent,
   CardDescription,
@@ -8,6 +7,7 @@ import {
   CardTitle,
   SectionTitle,
 } from "@/components/ui";
+import { cn } from "@/lib/utils";
 
 const univers = [
   {
@@ -54,12 +54,24 @@ export default function Home() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 pt-2">
-          <Button asChild size="lg">
-            <a href="#projets">Voir mes projets</a>
-          </Button>
-          <Button asChild size="lg" variant="outline">
-            <a href="#contact">Contact</a>
-          </Button>
+          <a
+            href="#projets"
+            className={cn(
+              "inline-flex h-10 items-center justify-center rounded-md px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              "bg-primary text-primary-foreground hover:bg-primary/90"
+            )}
+          >
+            Voir mes projets
+          </a>
+          <a
+            href="#contact"
+            className={cn(
+              "inline-flex h-10 items-center justify-center rounded-md border bg-background px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              "hover:bg-accent hover:text-accent-foreground"
+            )}
+          >
+            Contact
+          </a>
         </div>
       </section>
 
