@@ -1,5 +1,5 @@
 import { PageContainer } from "@/components/layout";
-import { GalleryGrid } from "@/components/gallery/GalleryGrid";
+import { GalleryMasonry } from "@/components/gallery/GalleryMasonry";
 import type { PhotoItem } from "@/lib/photography-data";
 
 type GalleryPageProps = {
@@ -20,7 +20,7 @@ export function GalleryPage({ title, description, photos }: GalleryPageProps) {
       </section>
 
       <section className="border-t border-border/60 py-12 sm:py-14">
-        <GalleryGrid photos={photos} />
+        <GalleryMasonry photos={photos} />
       </section>
     </PageContainer>
   );
