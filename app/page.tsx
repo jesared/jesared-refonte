@@ -39,30 +39,37 @@ const univers = [
 export default function Home() {
   return (
     <PageContainer>
-      <section className="flex flex-col gap-6 py-16 sm:py-24">
+      <section className="flex min-h-[70vh] flex-col items-center justify-center gap-6 py-16 text-center sm:py-24">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
           Hub personnel
         </p>
 
-        <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-          Construire des expériences digitales claires, élégantes et utiles.
+        <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+          Des expériences digitales modernes, élégantes et pensées pour durer.
         </h1>
 
         <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Bienvenue sur mon espace. Vous trouverez ici mes univers de création, mes
-          travaux et les ressources qui nourrissent ma pratique.
+          Je conçois des univers visuels minimalistes qui mettent vos idées au centre,
+          avec une navigation fluide sur tous les écrans.
         </p>
 
-        <div className="flex flex-wrap gap-3 pt-2">
-          <Button size="lg">Découvrir mes univers</Button>
-          <Button size="lg" variant="outline">
-            Me contacter
+        <div className="flex flex-wrap justify-center gap-3 pt-2">
+          <Button asChild size="lg">
+            <a href="#projets">Voir mes projets</a>
+          </Button>
+          <Button asChild size="lg" variant="outline">
+            <a href="#contact">Contact</a>
           </Button>
         </div>
       </section>
 
-      <section id="photographie" className="grid gap-6 border-y border-border/60 py-14 sm:grid-cols-2 sm:gap-8">
-        <SectionTitle overline="Photographie">Des images qui capturent l’émotion et la lumière.</SectionTitle>
+      <section
+        id="photographie"
+        className="grid gap-6 border-y border-border/60 py-14 sm:grid-cols-2 sm:gap-8"
+      >
+        <SectionTitle overline="Photographie">
+          Des images qui capturent l’émotion et la lumière.
+        </SectionTitle>
         <p className="text-base leading-relaxed text-muted-foreground sm:pt-8">
           Cette homepage est conçue pour aller à l’essentiel : une identité visuelle
           sobre, une hiérarchie claire et des accès rapides vers chaque domaine.
@@ -98,6 +105,14 @@ export default function Home() {
             </Card>
           ))}
         </div>
+      </section>
+
+      <section id="contact" className="border-t border-border/60 py-14 text-center sm:py-16">
+        <SectionTitle overline="Contact">Parlons de votre prochain projet</SectionTitle>
+        <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+          Une idée, une collaboration ou une question ? Écrivez-moi et construisons
+          ensemble une expérience simple, impactante et durable.
+        </p>
       </section>
     </PageContainer>
   );
