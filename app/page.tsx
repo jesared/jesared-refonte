@@ -1,4 +1,5 @@
 import { PageContainer } from "@/components/layout";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
   Button,
   Card,
@@ -40,6 +41,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <PageContainer>
+        <header className="flex justify-end pt-6">
+          <ThemeToggle />
+        </header>
+
         <section className="flex flex-col gap-6 py-20 sm:py-24">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
             Hub personnel
