@@ -36,6 +36,27 @@ const univers = [
   },
 ];
 
+const projetsRecents = [
+  {
+    title: "PingQuest",
+    description:
+      "Plateforme interactive dédiée au tennis de table avec un parcours ludique et une expérience claire sur tous les écrans.",
+    href: "#",
+  },
+  {
+    title: "Refonte site Trophée François Grieder",
+    description:
+      "Refonte complète du site de l'événement pour moderniser l'image, structurer les contenus et améliorer les performances.",
+    href: "#",
+  },
+  {
+    title: "Site Cham'élo Couture",
+    description:
+      "Création d'un site vitrine élégant valorisant les créations sur mesure, avec une navigation simple et immersive.",
+    href: "#",
+  },
+];
+
 export default function Home() {
   return (
     <PageContainer>
@@ -132,7 +153,35 @@ export default function Home() {
       </section>
 
       <section id="projets" className="border-t border-border/60 py-14 sm:py-16">
-        <SectionTitle overline="Projets">Un aperçu des travaux récents et à venir.</SectionTitle>
+        <div className="mb-8">
+          <SectionTitle overline="Projets récents">
+            Une sélection de réalisations récentes.
+          </SectionTitle>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {projetsRecents.map((projet) => (
+            <Card key={projet.title} className="border-border/70">
+              <CardHeader className="space-y-3">
+                <CardTitle className="text-xl leading-snug">{projet.title}</CardTitle>
+                <CardDescription className="text-sm leading-relaxed sm:text-base">
+                  {projet.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <a
+                  href={projet.href}
+                  className={cn(
+                    "inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                    "bg-primary text-primary-foreground hover:bg-primary/90"
+                  )}
+                >
+                  Voir le projet
+                </a>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </section>
 
       <section id="contact" className="border-t border-border/60 py-14 text-center sm:py-16">
