@@ -11,28 +11,28 @@ import { cn } from "@/lib/utils";
 
 const univers = [
   {
-    title: "Création web",
+    title: "Photographie",
     description:
-      "Sites vitrines, pages d'atterrissage et expériences web soignées pour valoriser les projets.",
-    href: "#",
+      "Séries photo et reportages visuels pour raconter des histoires sensibles et lumineuses.",
+    href: "#photographie",
   },
   {
-    title: "Design & identité",
+    title: "Développement web",
     description:
-      "Directions visuelles, interfaces et systèmes graphiques sobres, lisibles et cohérents.",
-    href: "#",
+      "Conception de sites performants, responsives et élégants, pensés pour une expérience fluide.",
+    href: "#developpement-web",
   },
   {
-    title: "Contenu & storytelling",
+    title: "Tennis de table",
     description:
-      "Formats éditoriaux et narrations pensées pour renforcer la clarté du message.",
-    href: "#",
+      "Compétition, entraînement et partage autour d'une pratique exigeante et passionnante.",
+    href: "#tennis-de-table",
   },
   {
-    title: "Veille & ressources",
+    title: "Projets",
     description:
-      "Un hub personnel de notes, références et outils pour explorer de nouvelles idées.",
-    href: "#",
+      "Sélection de réalisations personnelles et professionnelles, en cours ou déjà publiées.",
+    href: "#projets",
   },
 ];
 
@@ -89,9 +89,9 @@ export default function Home() {
         </p>
       </section>
 
-      <section id="projets" className="py-14 sm:py-16">
+      <section id="univers" className="py-14 sm:py-16">
         <div className="mb-8">
-          <SectionTitle overline="Projets">Explorez les réalisations en cours</SectionTitle>
+          <SectionTitle overline="Univers">Découvrez mes univers</SectionTitle>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">
@@ -111,12 +111,28 @@ export default function Home() {
                   href={item.href}
                   className="inline-flex items-center text-sm font-medium text-foreground/80 transition-colors group-hover:text-foreground"
                 >
-                  Entrer dans cet univers →
+                  Voir l’univers →
                 </a>
               </CardContent>
             </Card>
           ))}
         </div>
+      </section>
+
+      <section id="developpement-web" className="border-t border-border/60 py-14 sm:py-16">
+        <SectionTitle overline="Développement web">
+          Des expériences rapides, accessibles et orientées conversion.
+        </SectionTitle>
+      </section>
+
+      <section id="tennis-de-table" className="border-t border-border/60 py-14 sm:py-16">
+        <SectionTitle overline="Tennis de table">
+          Rigueur, précision et progression continue à la table.
+        </SectionTitle>
+      </section>
+
+      <section id="projets" className="border-t border-border/60 py-14 sm:py-16">
+        <SectionTitle overline="Projets">Un aperçu des travaux récents et à venir.</SectionTitle>
       </section>
 
       <section id="contact" className="border-t border-border/60 py-14 text-center sm:py-16">
