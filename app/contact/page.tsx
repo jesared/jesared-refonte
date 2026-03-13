@@ -1,46 +1,112 @@
-import Link from "next/link";
-
 import { PageContainer } from "@/components/layout";
-import { SectionTitle } from "@/components/ui";
-import { cn } from "@/lib/utils";
 
-const buttonClassName =
-  "inline-flex h-9 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
+const contacts = [
+  {
+    label: "Email",
+    value: "contact@jesared.fr",
+    href: "mailto:contact@jesared.fr",
+  },
+  {
+    label: "Instagram",
+    value: "@jesared",
+    href: "https://instagram.com",
+  },
+  {
+    label: "LinkedIn",
+    value: "Jesared",
+    href: "https://linkedin.com",
+  },
+  {
+    label: "X",
+    value: "@jesared",
+    href: "https://x.com",
+  },
+];
 
 export default function ContactPage() {
   return (
     <PageContainer>
       <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-2xl space-y-6 text-center">
+        <div className="mx-auto max-w-3xl space-y-6 text-center">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">Contact</p>
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Parlons de votre projet</h1>
-          <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Une idée, une collaboration ou une question ? Je vous réponds rapidement.
+          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Contact</h1>
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Si vous souhaitez discuter d’un projet ou d’une collaboration, vous pouvez me contacter.
           </p>
-          <a
-            href="mailto:contact@jesared.fr"
-            className={cn(buttonClassName, "bg-primary text-primary-foreground hover:bg-primary/90")}
-          >
-            contact@jesared.fr
-          </a>
         </div>
       </section>
 
-      <section className="border-t border-border/60 py-14 text-center sm:py-16">
-        <SectionTitle overline="Navigation rapide">Explorer le site</SectionTitle>
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <Link
-            href="/labs"
-            className={cn(buttonClassName, "border bg-background hover:bg-accent hover:text-accent-foreground")}
-          >
-            Voir les labs
-          </Link>
-          <Link
-            href="/photographie"
-            className={cn(buttonClassName, "border bg-background hover:bg-accent hover:text-accent-foreground")}
-          >
-            Voir la galerie photo
-          </Link>
+      <section className="border-t border-border/60 py-12 sm:py-16">
+        <div className="mx-auto grid w-full max-w-5xl gap-10 lg:grid-cols-[1fr_1.25fr]">
+          <div className="space-y-5">
+            <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">Informations de contact</h2>
+            <ul className="space-y-3 text-sm text-muted-foreground sm:text-base">
+              {contacts.map((contact) => (
+                <li key={contact.label}>
+                  <a
+                    href={contact.href}
+                    target={contact.href.startsWith("http") ? "_blank" : undefined}
+                    rel={contact.href.startsWith("http") ? "noreferrer" : undefined}
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <span className="font-medium text-foreground">{contact.label} :</span>
+                    <span>{contact.value}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-xl border border-border/70 bg-card p-6 shadow-sm sm:p-8">
+            <h2 className="text-xl font-semibold tracking-tight">Envoyer un message</h2>
+            <form className="mt-6 space-y-4" action="#" method="post">
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-sm font-medium">
+                  Nom
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  className="h-11 w-full rounded-md border border-border bg-background px-3 text-sm outline-none transition focus-visible:ring-2 focus-visible:ring-ring"
+                  placeholder="Votre nom"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-medium">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  className="h-11 w-full rounded-md border border-border bg-background px-3 text-sm outline-none transition focus-visible:ring-2 focus-visible:ring-ring"
+                  placeholder="vous@exemple.com"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm font-medium">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none transition focus-visible:ring-2 focus-visible:ring-ring"
+                  placeholder="Dites-moi en plus sur votre projet..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                Envoyer
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </PageContainer>
