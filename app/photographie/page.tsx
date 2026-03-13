@@ -39,6 +39,45 @@ const categories = [
   },
 ];
 
+const galleryItems = [
+  {
+    title: "Set club lumière stroboscope",
+    category: "Discothèque",
+    href: "/photographie/discotheque",
+    image: "/photographie/categories/discotheque.svg",
+  },
+  {
+    title: "Course décisive sur piste",
+    category: "Sport",
+    href: "/photographie/sport",
+    image: "/photographie/categories/sport.svg",
+  },
+  {
+    title: "Entrée de soirée corporate",
+    category: "Événements",
+    href: "/photographie/evenements",
+    image: "/photographie/categories/evenements.svg",
+  },
+  {
+    title: "Mise en scène produit premium",
+    category: "Produits",
+    href: "/photographie/produits",
+    image: "/photographie/categories/produits.svg",
+  },
+  {
+    title: "Foule et ambiance DJ set",
+    category: "Discothèque",
+    href: "/photographie/discotheque",
+    image: "/photographie/categories/discotheque.svg",
+  },
+  {
+    title: "Moment fort de cérémonie",
+    category: "Événements",
+    href: "/photographie/evenements",
+    image: "/photographie/categories/evenements.svg",
+  },
+];
+
 export default function PhotographiePage() {
   return (
     <PageContainer>
@@ -51,6 +90,36 @@ export default function PhotographiePage() {
           Un univers visuel minimaliste, centré sur la lumière, l&apos;émotion et des compositions
           nettes pour raconter chaque histoire avec élégance.
         </p>
+      </section>
+
+      <section className="border-t border-border/60 py-14 sm:py-16">
+        <div className="mb-8 text-center sm:mb-10">
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Galerie</h2>
+          <p className="mt-2 text-sm text-muted-foreground sm:text-base">
+            Une sélection d&apos;images en grille, pensée pour une navigation fluide et moderne.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {galleryItems.map((item) => (
+            <Link key={item.title} href={item.href} className="group relative block overflow-hidden rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/15" />
+                <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                  <p className="text-xs uppercase tracking-[0.14em] text-white/80">{item.category}</p>
+                  <p className="mt-1 text-sm font-medium sm:text-base">{item.title}</p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="border-t border-border/60 py-14 sm:py-16">
