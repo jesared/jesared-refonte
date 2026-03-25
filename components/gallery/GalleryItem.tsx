@@ -22,8 +22,7 @@ export function GalleryItem({ photo, index, onClick }: GalleryItemProps) {
     <button
       type="button"
       onClick={() => onClick(index)}
-      className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl bg-muted/20 text-left opacity-0 shadow-sm transition-transform duration-500 ease-out hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-safe:animate-[fade-in-up_700ms_ease-out_forwards] sm:mb-5 card-hover"
-      style={{ animationDelay: `${index * 60}ms` }}
+      className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl bg-muted/20 text-left shadow-sm transition-transform duration-500 ease-out hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:mb-5 card-hover"
       aria-label={`Ouvrir l'image ${index + 1}: ${photo.alt}`}
     >
       <div className={`relative ${imageHeightClass}`}>
