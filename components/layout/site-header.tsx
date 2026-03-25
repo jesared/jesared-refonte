@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import { PageContainer } from "@/components/layout/page-container";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -19,8 +19,8 @@ export function SiteHeader() {
             href="/"
             className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card px-3 py-1.5 text-sm font-semibold tracking-tight shadow-sm transition-colors hover:bg-accent sm:text-base"
           >
-            <span className="h-2.5 w-2.5 rounded-full bg-foreground/80" aria-hidden="true" />
-            Jésared Studio
+            <span className="brand-pulse" aria-hidden="true" />
+            Jesared Studio
           </Link>
 
           <div className="flex items-center gap-2 sm:gap-4">
@@ -30,7 +30,7 @@ export function SiteHeader() {
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="inline-flex rounded-full px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground sm:text-sm"
+                      className="inline-flex rounded-full px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-primary sm:text-sm"
                     >
                       {item.label}
                     </Link>

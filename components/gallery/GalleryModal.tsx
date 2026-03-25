@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useCallback, useEffect } from "react";
@@ -86,11 +86,21 @@ export function GalleryModal({ photos, activeIndex, onClose, onNavigate }: Galle
               ›
             </button>
 
-            <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-black/45 px-4 py-1.5 text-xs tracking-wide text-white/90">
+            <div className="absolute bottom-5 left-1/2 z-20 -translate-x-1/2 rounded-full bg-black/45 px-4 py-1.5 text-xs tracking-wide text-white/90">
               {currentIndex + 1} / {photos.length}
             </div>
 
-            <Image src={activePhoto.src} alt={activePhoto.alt} fill className="object-contain" sizes="100vw" priority />
+            <Image
+              src={activePhoto.src}
+              alt={activePhoto.alt}
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
+            />
+            <div className="absolute bottom-12 left-1/2 z-20 -translate-x-1/2 rounded-full bg-black/60 px-5 py-2 text-xs font-medium text-white/90 sm:text-sm">
+              {activePhoto.alt}
+            </div>
           </>
         )}
       </div>

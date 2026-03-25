@@ -1,5 +1,7 @@
+﻿import { cloudinaryUrl } from "@/lib/cloudinary";
+
 export type PhotographyCategory = {
-  slug: "discotheque" | "sport" | "evenements" | "produits";
+  slug: "discotheque" | "sport" | "evenement" | "produit";
   title: string;
   description: string;
   heroDescription: string;
@@ -8,6 +10,11 @@ export type PhotographyCategory = {
 
 export type PhotoItem = {
   src: string;
+  alt: string;
+};
+
+type PhotoAsset = {
+  publicId: string;
   alt: string;
 };
 
@@ -29,7 +36,7 @@ export const photographyCategories: PhotographyCategory[] = [
     coverImage: "/photographie/categories/sport.svg",
   },
   {
-    slug: "evenements",
+    slug: "evenement",
     title: "Événements",
     description: "Moments humains et atmosphères marquantes.",
     heroDescription:
@@ -37,7 +44,7 @@ export const photographyCategories: PhotographyCategory[] = [
     coverImage: "/photographie/categories/evenements.svg",
   },
   {
-    slug: "produits",
+    slug: "produit",
     title: "Produits",
     description: "Visuels soignés orientés marque et conversion.",
     heroDescription:
@@ -46,41 +53,131 @@ export const photographyCategories: PhotographyCategory[] = [
   },
 ];
 
-export const galleryByCategory: Record<PhotographyCategory["slug"], PhotoItem[]> = {
+export const galleryByCategory: Record<
+  PhotographyCategory["slug"],
+  PhotoAsset[]
+> = {
   discotheque: [
-    { src: "/photographie/categories/discotheque.svg", alt: "Projecteurs et fumée sur le dancefloor" },
-    { src: "/photographie/categories/discotheque.svg", alt: "DJ set en lumière violette" },
-    { src: "/photographie/categories/discotheque.svg", alt: "Public en contre-jour néon" },
-    { src: "/photographie/categories/discotheque.svg", alt: "Scène club ambiance stroboscope" },
-    { src: "/photographie/categories/discotheque.svg", alt: "Portrait nocturne en salle" },
-    { src: "/photographie/categories/discotheque.svg", alt: "Foule en mouvement sous lasers" },
+    {
+      publicId:
+        "portfolio/photo/discotheque/481776332_1298850698350907_7153424028171319158_n_dygg9m",
+      alt: "Portraits festifs en discothèque",
+    },
+    {
+      publicId:
+        "portfolio/photo/discotheque/482061811_1302279561341354_1226994942945584408_n_cidxra",
+      alt: "Ambiance de fête et confettis en discothèque",
+    },
   ],
   sport: [
-    { src: "/photographie/categories/sport.svg", alt: "Départ explosif sur piste" },
-    { src: "/photographie/categories/sport.svg", alt: "Sprint capturé en pleine accélération" },
-    { src: "/photographie/categories/sport.svg", alt: "Moment de concentration avant l'effort" },
-    { src: "/photographie/categories/sport.svg", alt: "Action décisive au bord du terrain" },
-    { src: "/photographie/categories/sport.svg", alt: "Détail du geste technique" },
-    { src: "/photographie/categories/sport.svg", alt: "Célébration d'après-victoire" },
+    {
+      publicId: "/photographie/categories/sport.svg",
+      alt: "Départ explosif sur piste",
+    },
+    {
+      publicId: "/photographie/categories/sport.svg",
+      alt: "Sprint capturé en pleine accélération",
+    },
+    {
+      publicId: "/photographie/categories/sport.svg",
+      alt: "Moment de concentration avant l'effort",
+    },
+    {
+      publicId: "/photographie/categories/sport.svg",
+      alt: "Action décisive au bord du terrain",
+    },
+    {
+      publicId: "/photographie/categories/sport.svg",
+      alt: "Détail du geste technique",
+    },
+    {
+      publicId: "/photographie/categories/sport.svg",
+      alt: "Célébration d'après-victoire",
+    },
   ],
-  evenements: [
-    { src: "/photographie/categories/evenements.svg", alt: "Accueil des invités en lumière douce" },
-    { src: "/photographie/categories/evenements.svg", alt: "Discours capté sur scène" },
-    { src: "/photographie/categories/evenements.svg", alt: "Plan large de soirée corporate" },
-    { src: "/photographie/categories/evenements.svg", alt: "Détail de décoration événementielle" },
-    { src: "/photographie/categories/evenements.svg", alt: "Portrait spontané pendant l'événement" },
-    { src: "/photographie/categories/evenements.svg", alt: "Final de soirée avec ambiance chaleureuse" },
+  evenement: [
+    {
+      publicId: "/photographie/categories/evenements.svg",
+      alt: "Accueil des invités en lumière douce",
+    },
+    {
+      publicId: "/photographie/categories/evenements.svg",
+      alt: "Discours capté sur scène",
+    },
+    {
+      publicId: "/photographie/categories/evenements.svg",
+      alt: "Plan large de soirée corporate",
+    },
+    {
+      publicId: "/photographie/categories/evenements.svg",
+      alt: "Détail de décoration événementielle",
+    },
+    {
+      publicId: "/photographie/categories/evenements.svg",
+      alt: "Portrait spontané pendant l'événement",
+    },
+    {
+      publicId: "/photographie/categories/evenements.svg",
+      alt: "Final de soirée avec ambiance chaleureuse",
+    },
   ],
-  produits: [
-    { src: "/photographie/categories/produits.svg", alt: "Packshot produit minimaliste" },
-    { src: "/photographie/categories/produits.svg", alt: "Mise en scène produit lifestyle" },
-    { src: "/photographie/categories/produits.svg", alt: "Détail texture et matière" },
-    { src: "/photographie/categories/produits.svg", alt: "Produit avec éclairage contrasté" },
-    { src: "/photographie/categories/produits.svg", alt: "Composition e-commerce fond neutre" },
-    { src: "/photographie/categories/produits.svg", alt: "Série branding avec accessoires" },
+  produit: [
+    {
+      publicId: "/photographie/categories/produits.svg",
+      alt: "Packshot produit minimaliste",
+    },
+    {
+      publicId: "/photographie/categories/produits.svg",
+      alt: "Mise en scène produit lifestyle",
+    },
+    {
+      publicId: "/photographie/categories/produits.svg",
+      alt: "Détail texture et matière",
+    },
+    {
+      publicId: "/photographie/categories/produits.svg",
+      alt: "Produit avec éclairage contrasté",
+    },
+    {
+      publicId: "/photographie/categories/produits.svg",
+      alt: "Composition e-commerce fond neutre",
+    },
+    {
+      publicId: "/photographie/categories/produits.svg",
+      alt: "Série branding avec accessoires",
+    },
   ],
+};
+
+export const galleryFolderByCategory: Record<
+  PhotographyCategory["slug"],
+  string
+> = {
+  discotheque: "portfolio/photo/discotheque",
+  sport: "portfolio/photo/sport",
+  evenement: "portfolio/photo/evenement",
+  produit: "portfolio/photo/produit",
 };
 
 export function getPhotographyCategory(slug: string) {
   return photographyCategories.find((category) => category.slug === slug);
+}
+
+export function getGalleryFolderByCategory(slug: PhotographyCategory["slug"]) {
+  return galleryFolderByCategory[slug];
+}
+
+export function getGalleryPhotosByCategory(
+  slug: PhotographyCategory["slug"],
+): PhotoItem[] {
+  const photos = galleryByCategory[slug] ?? [];
+
+  return photos.map((photo) => ({
+    src: cloudinaryUrl(photo.publicId, {
+      width: 1800,
+      quality: "auto",
+      format: "auto",
+    }),
+    alt: photo.alt,
+  }));
 }

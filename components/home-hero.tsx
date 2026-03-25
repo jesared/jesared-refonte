@@ -1,4 +1,4 @@
-export function HomeHero() {
+﻿export function HomeHero() {
   return (
     <section className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-6 py-24 sm:px-10 sm:py-32">
       <p className="w-fit rounded-full border border-zinc-200 bg-zinc-100 px-3 py-1 text-xs font-medium uppercase tracking-[0.16em] text-zinc-600">

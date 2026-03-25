@@ -1,4 +1,4 @@
-import { PageContainer } from "@/components/layout/page-container";
+﻿import { PageContainer } from "@/components/layout/page-container";
 
 const socialLinks = [
   { label: "Instagram", href: "https://instagram.com" },
@@ -12,8 +12,8 @@ export function SiteFooter() {
       <PageContainer>
         <div className="flex flex-col gap-4 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <div className="space-y-1">
-            <p className="font-medium text-foreground">Jésared</p>
-            <p>© {new Date().getFullYear()} Jésared. Tous droits réservés.</p>
+            <p className="font-medium text-foreground">Jesared</p>
+            <p>© {new Date().getFullYear()} Jesared. Tous droits réservés.</p>
           </div>
 
           <div className="flex flex-col gap-2 md:items-end">

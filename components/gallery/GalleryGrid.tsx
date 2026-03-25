@@ -1,4 +1,4 @@
-import { GalleryMasonry } from "@/components/gallery/GalleryMasonry";
+﻿import { GalleryMasonry } from "@/components/gallery/GalleryMasonry";
 import type { GalleryPhoto } from "@/components/gallery/GalleryItem";
 
 type GalleryGridProps = {

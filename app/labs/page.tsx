@@ -1,26 +1,10 @@
+﻿import Image from "next/image";
 import Link from "next/link";
 
 import { PageContainer } from "@/components/layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, SectionTitle } from "@/components/ui";
 import { cn } from "@/lib/utils";
-
-const projects = [
-  {
-    title: "PingQuest",
-    description: "Plateforme moderne pour la gestion de tournois.",
-    href: "/contact",
-  },
-  {
-    title: "Trophée François Grieder",
-    description: "Refonte du site et outils pour le tournoi.",
-    href: "/photographie",
-  },
-  {
-    title: "Cham'élo Couture",
-    description: "Création d’un site vitrine moderne.",
-    href: "/contact",
-  },
-];
+import { labProjects } from "@/lib/labs-data";
 
 export default function LabsPage() {
   return (
@@ -39,21 +23,30 @@ export default function LabsPage() {
         <SectionTitle overline="Projets">Projets & expérimentations</SectionTitle>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
+          {labProjects.map((project) => (
             <Card
               key={project.title}
               className="group flex h-full flex-col overflow-hidden border-border/70 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
             >
-              <div className="h-28 bg-gradient-to-br from-primary/20 via-transparent to-primary/5" aria-hidden="true" />
+              <div className="relative h-40 overflow-hidden">
+                <Image
+                  src={project.images[0]?.src ?? "/photographie/categories/produits.svg"}
+                  alt={project.images[0]?.alt ?? `Aperçu du projet ${project.title}`}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/5" aria-hidden="true" />
+              </div>
               <CardHeader className="space-y-3">
                 <CardTitle className="text-xl leading-snug">{project.title}</CardTitle>
                 <CardDescription className="text-sm leading-relaxed sm:text-base">
-                  {project.description}
+                  {project.shortDescription}
                 </CardDescription>
               </CardHeader>
               <CardContent className="mt-auto">
                 <Link
-                  href={project.href}
+                  href={`/labs/${project.slug}`}
                   className={cn(
                     "inline-flex h-9 w-full items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:w-auto",
                     "bg-primary text-primary-foreground hover:bg-primary/90"

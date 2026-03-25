@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import "./globals.css";
 import { SiteFooter, SiteHeader } from "@/components/layout";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Jésared",
+  title: "Jesared",
   description: "Base Next.js minimaliste pour une refonte moderne.",
 };
 
