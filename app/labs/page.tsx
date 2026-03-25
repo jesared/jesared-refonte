@@ -26,7 +26,7 @@ export default function LabsPage() {
           {labProjects.map((project) => (
             <Card
               key={project.title}
-              className="group flex h-full flex-col overflow-hidden border-border/70 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+              className="group flex h-full flex-col overflow-hidden border-border/70 card-hover"
             >
               <div className="relative h-40 overflow-hidden">
                 <Image
@@ -43,8 +43,21 @@ export default function LabsPage() {
                 <CardDescription className="text-sm leading-relaxed sm:text-base">
                   {project.shortDescription}
                 </CardDescription>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="badge-accent rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </CardHeader>
               <CardContent className="mt-auto">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                  {project.dates}
+                </p>
                 <Link
                   href={`/labs/${project.slug}`}
                   className={cn(

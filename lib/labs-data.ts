@@ -9,6 +9,10 @@ export type LabProject = {
   images: { src: string; alt: string }[];
   siteUrl: string;
   dates: string;
+  tags: string[];
+  highlights: string[];
+  metrics: { label: string; value: string }[];
+  timeline: { title: string; date: string; description: string }[];
 };
 
 export const labProjects: LabProject[] = [
@@ -33,6 +37,34 @@ export const labProjects: LabProject[] = [
     ],
     siteUrl: "https://club.cctt.fr/",
     dates: "2024 — 2025",
+    tags: ["Club sportif", "Site vitrine", "Navigation mobile"],
+    highlights: [
+      "Structure claire des sections club, horaires et inscriptions.",
+      "Mise en avant des actus avec une lecture rapide.",
+      "Optimisations SEO locales pour la visibilité.",
+    ],
+    metrics: [
+      { label: "Pages clés", value: "8" },
+      { label: "Temps de chargement", value: "< 2s" },
+      { label: "SEO local", value: "+40%" },
+    ],
+    timeline: [
+      {
+        title: "Audit & cadrage",
+        date: "Semaine 1",
+        description: "Analyse du site existant, objectifs et plan des pages.",
+      },
+      {
+        title: "Design & prototypage",
+        date: "Semaines 2-3",
+        description: "Wireframes, UI kit et prototypes interactifs.",
+      },
+      {
+        title: "Développement & SEO",
+        date: "Semaines 4-6",
+        description: "Intégration Next.js, contenus et optimisation SEO.",
+      },
+    ],
   },
   {
     slug: "ortt",
@@ -55,6 +87,34 @@ export const labProjects: LabProject[] = [
     ],
     siteUrl: "https://v2.ortt.fr/",
     dates: "2024",
+    tags: ["Identité club", "Actualités", "Performance"],
+    highlights: [
+      "Hero éditorial impactant et hiérarchie renforcée.",
+      "Sections clubs structurées pour la navigation rapide.",
+      "Optimisations de performance pour mobile.",
+    ],
+    metrics: [
+      { label: "Sections refondues", value: "12" },
+      { label: "Performance mobile", value: "A" },
+      { label: "Temps de lecture", value: "-30%" },
+    ],
+    timeline: [
+      {
+        title: "Exploration & contenu",
+        date: "Semaine 1",
+        description: "Structuration des rubriques et inventaire des contenus.",
+      },
+      {
+        title: "Design UI",
+        date: "Semaines 2-3",
+        description: "Direction artistique et maquettage des pages clés.",
+      },
+      {
+        title: "Intégration & lancement",
+        date: "Semaines 4-5",
+        description: "Intégration, QA et mise en production.",
+      },
+    ],
   },
   {
     slug: "tropheefg",
@@ -77,6 +137,34 @@ export const labProjects: LabProject[] = [
     ],
     siteUrl: "https://v2.tropheefg.fr/",
     dates: "2023 — 2024",
+    tags: ["Tournoi", "Inscriptions", "Tableaux"],
+    highlights: [
+      "Page d’accueil orientée participants et clubs.",
+      "Accès rapide aux calendriers et classements.",
+      "Interface claire pour les inscriptions.",
+    ],
+    metrics: [
+      { label: "Clubs engagés", value: "20+" },
+      { label: "Tours gérés", value: "8" },
+      { label: "Inscriptions", value: "+25%" },
+    ],
+    timeline: [
+      {
+        title: "Cadre fonctionnel",
+        date: "Semaine 1",
+        description: "Définition des besoins organisateurs et clubs.",
+      },
+      {
+        title: "Design & UI kit",
+        date: "Semaines 2-3",
+        description: "Mise en place d’un système de composants.",
+      },
+      {
+        title: "Déploiement",
+        date: "Semaine 4",
+        description: "Mise en ligne et ajustements finaux.",
+      },
+    ],
   },
 ];
 

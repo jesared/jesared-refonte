@@ -1,4 +1,6 @@
-﻿import { PageContainer } from "@/components/layout";
+﻿import Image from "next/image";
+
+import { PageContainer } from "@/components/layout";
 
 const contacts = [
   {
@@ -37,27 +39,42 @@ export default function ContactPage() {
       </section>
 
       <section className="border-t border-border/60 py-12 sm:py-16">
-        <div className="mx-auto grid w-full max-w-5xl gap-10 lg:grid-cols-[1fr_1.25fr]">
-          <div className="space-y-5">
-            <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">Informations de contact</h2>
-            <ul className="space-y-3 text-sm text-muted-foreground sm:text-base">
-              {contacts.map((contact) => (
-                <li key={contact.label}>
-                  <a
-                    href={contact.href}
-                    target={contact.href.startsWith("http") ? "_blank" : undefined}
-                    rel={contact.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
-                  >
-                    <span className="font-medium text-foreground">{contact.label} :</span>
-                    <span>{contact.value}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+        <div className="mx-auto grid w-full max-w-5xl gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+          <div className="space-y-6">
+            <div className="overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm">
+              <div className="relative aspect-[4/5] w-full">
+                <Image
+                  src="/me.jpg"
+                  alt="Portrait Jesared"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 32vw, 100vw"
+                  priority
+                />
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-border/70 bg-card p-5 shadow-sm">
+              <h2 className="text-lg font-semibold tracking-tight">Informations de contact</h2>
+              <ul className="mt-4 space-y-3 text-sm text-muted-foreground sm:text-base">
+                {contacts.map((contact) => (
+                  <li key={contact.label}>
+                    <a
+                      href={contact.href}
+                      target={contact.href.startsWith("http") ? "_blank" : undefined}
+                      rel={contact.href.startsWith("http") ? "noreferrer" : undefined}
+                      className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                    >
+                      <span className="font-medium text-foreground">{contact.label} :</span>
+                      <span>{contact.value}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className="rounded-xl border border-border/70 bg-card p-6 shadow-sm sm:p-8">
+          <div className="rounded-2xl border border-border/70 bg-card p-6 shadow-sm sm:p-8">
             <h2 className="text-xl font-semibold tracking-tight">Envoyer un message</h2>
             <form className="mt-6 space-y-4" action="#" method="post">
               <div className="space-y-2">
