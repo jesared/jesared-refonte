@@ -204,13 +204,13 @@
     border-color: color-mix(in oklch, var(--color-primary) 35%, transparent);
   }
 
-  .reveal {
-    opacity: 0;
-    transform: translateY(16px);
-    filter: blur(6px);
-    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
-    transition-delay: var(--reveal-delay, 0ms);
-  }
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  filter: blur(3px);
+  transition: opacity 0.65s ease, transform 0.65s ease, filter 0.65s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
 
   .reveal-visible {
     opacity: 1;
@@ -223,14 +223,14 @@
     overflow: hidden;
   }
 
-  .image-reveal::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--color-background);
-    transform: translateX(0);
-    transition: transform 0.9s ease;
-  }
+.image-reveal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-background);
+  transform: translateX(0);
+  transition: transform 0.7s ease;
+}
 
   .reveal-visible .image-reveal::after {
     transform: translateX(100%);

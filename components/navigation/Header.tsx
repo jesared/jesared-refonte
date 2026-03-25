@@ -19,7 +19,7 @@ export function Header() {
           </Link>
 
           <div className="flex items-center gap-2 sm:gap-3">
-            <nav aria-label="Navigation principale" className="hidden md:block">
+            <nav aria-label="Navigation principale" className="hidden lg:block">
               <ul className="flex items-center gap-1">
                 {navigationLinks.map((item) => (
                   <li key={item.href}>

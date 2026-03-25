@@ -1,7 +1,8 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 import { navigationLinks } from "@/components/navigation/nav-links";
 import { cn } from "@/lib/utils";
@@ -45,9 +46,37 @@ function CloseIcon({ className }: { className?: string }) {
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const { body } = document;
+    const scrollY = window.scrollY;
+    const previousOverflow = body.style.overflow;
+    const previousPosition = body.style.position;
+    const previousTop = body.style.top;
+    const previousWidth = body.style.width;
+
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+
+    return () => {
+      body.style.overflow = previousOverflow;
+      body.style.position = previousPosition;
+      body.style.top = previousTop;
+      body.style.width = previousWidth;
+      window.scrollTo(0, scrollY);
+    };
+  }, [isOpen]);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         onClick={() => setIsOpen(true)}
@@ -59,51 +88,65 @@ export function MobileMenu() {
         <MenuIcon />
       </button>
 
-      <div
-        className={cn(
-          "fixed inset-0 z-50 bg-black/50 transition-opacity duration-200",
-          isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-        )}
-        onClick={() => setIsOpen(false)}
-        aria-hidden="true"
-      />
+      {mounted
+        ? createPortal(
+            <>
+              <div
+                className={cn(
+                  "fixed inset-0 z-[9998] bg-black/70 transition-opacity duration-200",
+                  isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+                )}
+                onClick={() => setIsOpen(false)}
+                aria-hidden="true"
+              />
 
-      <aside
-        id="mobile-nav-panel"
-        className={cn(
-          "fixed right-0 top-0 z-50 flex h-full w-full max-w-xs flex-col border-l border-border bg-background p-6 shadow-2xl transition-transform duration-300 ease-out",
-          isOpen ? "translate-x-0" : "translate-x-full"
-        )}
-        aria-label="Navigation mobile"
-      >
-        <div className="mb-8 flex items-center justify-between">
-          <p className="text-sm font-medium text-muted-foreground">Menu</p>
-          <button
-            type="button"
-            onClick={() => setIsOpen(false)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border/70 text-foreground transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            aria-label="Fermer le menu"
-          >
-            <CloseIcon />
-          </button>
-        </div>
+              <aside
+                id="mobile-nav-panel"
+                className={cn(
+                  "fixed inset-0 z-[9999] flex h-full w-full flex-col bg-background text-foreground transition-transform duration-300 ease-out",
+                  isOpen ? "translate-x-0" : "translate-x-full"
+                )}
+                aria-label="Navigation mobile"
+              >
+                <div className="flex items-center justify-between border-b border-border/60 px-6 py-4">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/70">Menu</p>
+                    <p className="mt-1 text-base font-semibold">Jesared Studio</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setIsOpen(false)}
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border/70 text-foreground transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    aria-label="Fermer le menu"
+                  >
+                    <CloseIcon />
+                  </button>
+                </div>
 
-        <nav aria-label="Navigation principale mobile">
-          <ul className="flex flex-col gap-2">
-            {navigationLinks.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="block rounded-md px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-accent"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </aside>
+                <nav aria-label="Navigation principale mobile" className="flex-1 overflow-y-auto px-6 py-6">
+                  <ul className="flex flex-col gap-3">
+                    {navigationLinks.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          className="block rounded-lg border border-border/60 bg-card/30 px-4 py-3 text-base font-medium text-foreground transition-colors hover:bg-accent"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+
+                <div className="border-t border-border/60 px-6 py-4 text-sm text-muted-foreground">
+                  Créons un projet clair et élégant, pensé pour convertir.
+                </div>
+              </aside>
+            </>,
+            document.body
+          )
+        : null}
     </div>
   );
 }
