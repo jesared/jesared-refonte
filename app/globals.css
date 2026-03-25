@@ -134,6 +134,30 @@
   }
 }
 
+@keyframes float-slow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes cta-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--color-primary) 35%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 14px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
 @layer utilities {
   .fade-up {
     animation: fade-in-up 0.6s ease both;
@@ -161,6 +185,11 @@
       0 0 0 1px color-mix(in oklch, var(--color-primary) 25%, transparent);
   }
 
+  .cta-pulse {
+    position: relative;
+    animation: cta-pulse 4.2s ease-out infinite;
+  }
+
   .title-underline {
     background-image: linear-gradient(
       180deg,
@@ -173,6 +202,38 @@
     background: color-mix(in oklch, var(--color-primary) 12%, transparent);
     color: var(--color-primary);
     border-color: color-mix(in oklch, var(--color-primary) 35%, transparent);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(6px);
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  .image-reveal {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-reveal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-background);
+    transform: translateX(0);
+    transition: transform 0.9s ease;
+  }
+
+  .reveal-visible .image-reveal::after {
+    transform: translateX(100%);
   }
 
   .brand-pulse {
@@ -201,13 +262,26 @@
     opacity: 0.3;
     animation: brand-pulse 2.2s ease-out infinite;
   }
+
+  .float-slow {
+    animation: float-slow 7s ease-in-out infinite;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .fade-up,
   .fade-up-delay-1,
   .fade-up-delay-2,
-  .fade-up-delay-3 {
+  .fade-up-delay-3,
+  .float-slow,
+  .reveal,
+  .cta-pulse {
     animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }
