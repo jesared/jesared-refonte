@@ -2,25 +2,36 @@
 
 import { PageContainer } from "@/components/layout/page-container";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { SectionTitle } from "@/components/ui/section-title";
 
 const pricingTiers = [
   {
     name: "Essentiel",
-    price: "200€ + 120€/an",
+    price: "250€ + 150€/an (≈12€/mois)",
     accent: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     features: ["Site moderne", "Pages principales", "Maintenance", "Support"],
   },
   {
     name: "Club",
-    price: "300€ + 180€/an",
+    price: "350€ + 200€/an (≈17€/mois)",
     accent: "bg-sky-500/10 text-sky-400 border-sky-500/20",
-    features: ["Tout Essentiel", "Actualités", "Galerie photos", "Évolutions"],
+    features: [
+      "Tout Essentiel",
+      "Actualités",
+      "Galerie photos",
+      "Évolutions régulières",
+    ],
   },
   {
     name: "Performance",
-    price: "500€ + 250€/an",
+    price: "600€ + 300€/an (≈25€/mois)",
     accent: "bg-rose-500/10 text-rose-400 border-rose-500/20",
     features: ["Tout Club", "Gestion tournoi", "Inscriptions", "UX premium"],
     highlight: true,
@@ -55,27 +66,34 @@ export default function OffresClubPage() {
       <PageContainer>
         <section className="grid gap-10 md:grid-cols-[1.1fr_1.3fr] md:items-center">
           <div className="space-y-4">
-            <SectionTitle overline="Problème">Des sites trop souvent dépassés</SectionTitle>
+            <SectionTitle overline="Problème">
+              Des sites trop souvent dépassés
+            </SectionTitle>
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Aujourd’hui, beaucoup de clubs ont des sites peu mis à jour ou difficiles à gérer.
+              Aujourd’hui, beaucoup de clubs ont des sites peu mis à jour ou
+              difficiles à gérer.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
-            {["Site obsolète", "Gestion compliquée", "Manque de fiabilité"].map((item) => (
-              <div
-                key={item}
-                className="rounded-2xl border border-border/70 bg-card p-4 text-sm font-medium shadow-sm transition-transform duration-300 hover:-translate-y-1"
-              >
-                {item}
-              </div>
-            ))}
+            {["Site obsolète", "Gestion compliquée", "Manque de fiabilité"].map(
+              (item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-border/70 bg-card p-4 text-sm font-medium shadow-sm transition-transform duration-300 hover:-translate-y-1"
+                >
+                  {item}
+                </div>
+              ),
+            )}
           </div>
         </section>
       </PageContainer>
 
       <PageContainer>
         <section className="grid gap-10">
-          <SectionTitle overline="Solution">Une solution clé en main</SectionTitle>
+          <SectionTitle overline="Solution">
+            Une solution clé en main
+          </SectionTitle>
           <div className="grid gap-4 sm:grid-cols-3">
             {["Site moderne", "Gestion simplifiée", "Évolutif"].map((item) => (
               <div
@@ -92,9 +110,12 @@ export default function OffresClubPage() {
       <PageContainer>
         <section id="offres" className="space-y-10">
           <div className="text-center">
-            <SectionTitle overline="Offres">Choisissez la formule adaptée</SectionTitle>
+            <SectionTitle overline="Offres">
+              Choisissez la formule adaptée
+            </SectionTitle>
             <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-              Trois niveaux pour s’adapter au rythme et aux ambitions de votre club.
+              Trois niveaux pour s’adapter au rythme et aux ambitions de votre
+              club.
             </p>
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
@@ -130,7 +151,9 @@ export default function OffresClubPage() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full rounded-full">Choisir {tier.name}</Button>
+                  <Button className="w-full rounded-full">
+                    Choisir {tier.name}
+                  </Button>
                 </CardFooter>
               </Card>
             ))}
@@ -145,7 +168,8 @@ export default function OffresClubPage() {
               Vous vous concentrez sur le club, je m’occupe du site
             </SectionTitle>
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Un accompagnement durable pour un site toujours fiable, sécurisé et à jour.
+              Un accompagnement durable pour un site toujours fiable, sécurisé
+              et à jour.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
