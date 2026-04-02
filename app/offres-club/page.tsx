@@ -15,12 +15,15 @@ const pricingTiers = [
   {
     name: "Essentiel",
     price: "250€ + 150€/an (≈12€/mois)",
+    description: "L’essentiel pour un site simple, propre et fiable.",
     accent: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     features: ["Site moderne", "Pages principales", "Maintenance", "Support"],
+    cta: "Démarrer simplement",
   },
   {
     name: "Club",
     price: "350€ + 200€/an (≈17€/mois)",
+    description: "Idéal pour un club actif qui veut communiquer facilement.",
     accent: "bg-sky-500/10 text-sky-400 border-sky-500/20",
     features: [
       "Tout Essentiel",
@@ -29,12 +32,17 @@ const pricingTiers = [
       "Évolutions régulières",
     ],
     highlight: true,
+    badge: "Le plus choisi",
+    cta: "Choisir cette offre",
   },
   {
     name: "Performance",
     price: "600€ + 300€/an (≈25€/mois)",
+    description:
+      "Pour les clubs qui organisent des tournois et veulent aller plus loin.",
     accent: "bg-rose-500/10 text-rose-400 border-rose-500/20",
     features: ["Tout Club", "Gestion tournoi", "Inscriptions", "UX premium"],
+    cta: "Passer au niveau supérieur",
   },
 ];
 
@@ -127,13 +135,16 @@ export default function OffresClubPage() {
                 <CardHeader className="space-y-4">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-xl">{tier.name}</CardTitle>
-                    {tier.highlight ? (
+                    {tier.badge ? (
                       <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                        Recommandé
+                        {tier.badge}
                       </span>
                     ) : null}
                   </div>
                   <p className="text-2xl font-semibold">{tier.price}</p>
+                  {tier.description ? (
+                    <p className="text-sm text-muted-foreground">{tier.description}</p>
+                  ) : null}
                   <span
                     className={`w-fit rounded-full border px-3 py-1 text-xs font-semibold ${tier.accent}`}
                   >
@@ -151,9 +162,7 @@ export default function OffresClubPage() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full rounded-full">
-                    Choisir {tier.name}
-                  </Button>
+                  <Button className="w-full rounded-full">{tier.cta}</Button>
                 </CardFooter>
               </Card>
             ))}
