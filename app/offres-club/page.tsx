@@ -123,7 +123,10 @@ export default function OffresClubPage() {
               <Card
                 key={tier.name}
                 className={
-                  "relative rounded-2xl border border-border/70 bg-card/80 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                  "relative rounded-2xl border border-border/70 bg-card/80 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" +
+                  (tier.highlight
+                    ? " border-primary/50 ring-1 ring-primary/25 shadow-[0_18px_40px_-26px_rgba(255,153,0,0.6)]"
+                    : "")
                 }
               >
                 {tier.highlight ? (
