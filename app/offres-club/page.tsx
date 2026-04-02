@@ -28,13 +28,13 @@ const pricingTiers = [
       "Galerie photos",
       "Évolutions régulières",
     ],
+    highlight: true,
   },
   {
     name: "Performance",
     price: "600€ + 300€/an (≈25€/mois)",
     accent: "bg-rose-500/10 text-rose-400 border-rose-500/20",
     features: ["Tout Club", "Gestion tournoi", "Inscriptions", "UX premium"],
-    highlight: true,
   },
 ];
 
