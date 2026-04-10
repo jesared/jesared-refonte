@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node -e \"const p=require('path');const pkg=process.env.npm_package_json;const pkgRoot=p.dirname(pkg||p.join(process.cwd(),'package.json'));const x=process.env.INIT_CWD||pkgRoot;const root=x.startsWith('\\\\\\\\?\\\\')?x.slice(4):x;const r=p.join(root,'scripts','next-runner.cjs');process.argv=['node',r,'dev'];require(r);\"",
-    "build": "node -e \"const p=require('path');const pkg=process.env.npm_package_json;const pkgRoot=p.dirname(pkg||p.join(process.cwd(),'package.json'));const x=process.env.INIT_CWD||pkgRoot;const root=x.startsWith('\\\\\\\\?\\\\')?x.slice(4):x;const r=p.join(root,'scripts','next-runner.cjs');process.argv=['node',r,'build'];require(r);\"",
-    "start": "node -e \"const p=require('path');const pkg=process.env.npm_package_json;const pkgRoot=p.dirname(pkg||p.join(process.cwd(),'package.json'));const x=process.env.INIT_CWD||pkgRoot;const root=x.startsWith('\\\\\\\\?\\\\')?x.slice(4):x;const r=p.join(root,'scripts','next-runner.cjs');process.argv=['node',r,'start'];require(r);\"",
+    "dev": "node -e \"const p=require('path');const root=p.dirname(process.env.npm_package_json||p.join(process.cwd(),'package.json'));const file=p.join(root,'scripts','npm-next-bootstrap.cjs');process.argv=['node',file,'dev'];require(file);\"",
+    "build": "node -e \"const p=require('path');const root=p.dirname(process.env.npm_package_json||p.join(process.cwd(),'package.json'));const file=p.join(root,'scripts','npm-next-bootstrap.cjs');process.argv=['node',file,'build'];require(file);\"",
+    "start": "node -e \"const p=require('path');const root=p.dirname(process.env.npm_package_json||p.join(process.cwd(),'package.json'));const file=p.join(root,'scripts','npm-next-bootstrap.cjs');process.argv=['node',file,'start'];require(file);\"",
     "lint": "eslint"
   },
   "dependencies": {
