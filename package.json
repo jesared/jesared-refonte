@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "node \"%INIT_CWD%\\scripts\\next-runner.cjs\" dev",
+    "build": "node \"%INIT_CWD%\\scripts\\next-runner.cjs\" build",
+    "start": "node \"%INIT_CWD%\\scripts\\next-runner.cjs\" start",
     "lint": "eslint"
   },
   "dependencies": {

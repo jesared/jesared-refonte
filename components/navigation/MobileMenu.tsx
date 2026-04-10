@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
 import { navigationLinks } from "@/components/navigation/nav-links";
@@ -46,11 +46,11 @@ function CloseIcon({ className }: { className?: string }) {
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    () => () => undefined,
+    () => true,
+    () => false
+  );
 
   useEffect(() => {
     if (!isOpen) return;
