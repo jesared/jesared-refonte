@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node -e \"const path=require('path');const pkgRoot=process.env.npm_package_json?path.dirname(process.env.npm_package_json):process.cwd();const root=(process.env.INIT_CWD||pkgRoot).replace(/^\\\\\\\\\\\\?\\\\/,'');const runner=path.join(root,'scripts','next-runner.cjs');process.argv=['node',runner,'dev'];require(runner);\"",
-    "build": "node -e \"const path=require('path');const pkgRoot=process.env.npm_package_json?path.dirname(process.env.npm_package_json):process.cwd();const root=(process.env.INIT_CWD||pkgRoot).replace(/^\\\\\\\\\\\\?\\\\/,'');const runner=path.join(root,'scripts','next-runner.cjs');process.argv=['node',runner,'build'];require(runner);\"",
-    "start": "node -e \"const path=require('path');const pkgRoot=process.env.npm_package_json?path.dirname(process.env.npm_package_json):process.cwd();const root=(process.env.INIT_CWD||pkgRoot).replace(/^\\\\\\\\\\\\?\\\\/,'');const runner=path.join(root,'scripts','next-runner.cjs');process.argv=['node',runner,'start'];require(runner);\"",
+    "dev": "node -e \"const p=require('path');const pkg=process.env.npm_package_json;const pkgRoot=p.dirname(pkg||p.join(process.cwd(),'package.json'));const x=process.env.INIT_CWD||pkgRoot;const root=x.startsWith('\\\\\\\\?\\\\')?x.slice(4):x;const r=p.join(root,'scripts','next-runner.cjs');process.argv=['node',r,'dev'];require(r);\"",
+    "build": "node -e \"const p=require('path');const pkg=process.env.npm_package_json;const pkgRoot=p.dirname(pkg||p.join(process.cwd(),'package.json'));const x=process.env.INIT_CWD||pkgRoot;const root=x.startsWith('\\\\\\\\?\\\\')?x.slice(4):x;const r=p.join(root,'scripts','next-runner.cjs');process.argv=['node',r,'build'];require(r);\"",
+    "start": "node -e \"const p=require('path');const pkg=process.env.npm_package_json;const pkgRoot=p.dirname(pkg||p.join(process.cwd(),'package.json'));const x=process.env.INIT_CWD||pkgRoot;const root=x.startsWith('\\\\\\\\?\\\\')?x.slice(4):x;const r=p.join(root,'scripts','next-runner.cjs');process.argv=['node',r,'start'];require(r);\"",
     "lint": "eslint"
   },
   "dependencies": {
