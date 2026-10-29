@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PageContainer } from "@/components/layout";
+import { SupportPassion } from "@/components/support-passion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, Reveal } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
@@ -257,6 +258,8 @@ export default function Home() {
             </div>
           </section>
         </Reveal>
+
+        <SupportPassion />
 
         <Reveal delay={140}>
           <section className="border-t border-border/60 py-16 sm:py-20">

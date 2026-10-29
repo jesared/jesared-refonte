@@ -4,10 +4,7 @@ import Script from "next/script";
 
 import { PageContainer } from "@/components/layout";
 import { Card, CardContent, CardHeader, CardTitle, Reveal } from "@/components/ui";
-
-const paypalDonateUrl =
-  process.env.NEXT_PUBLIC_PAYPAL_DONATE_URL ??
-  "https://www.paypal.com/donate?hosted_button_id=7X4G2TKAQC2Q4";
+import { donationUrl } from "@/lib/donation";
 
 export const metadata: Metadata = {
   title: "Galeries photo",
@@ -36,7 +33,7 @@ export default function AccesClientsPage() {
                 Voir les galeries
               </Link>
               <Link
-                href={paypalDonateUrl}
+                href={donationUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex h-11 items-center justify-center rounded-md border bg-background px-6 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -91,15 +88,15 @@ export default function AccesClientsPage() {
           <div className="rounded-3xl border border-border/70 bg-card/95 p-8 text-center shadow-sm">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/70">Soutien</p>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
-              Soutenir la mise a disposition des photos
+              Soutenir ma passion
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Si les photos te plaisent et que tu les utilises, tu peux faire un don selon tes moyens. Cela aide a
-              continuer a produire du contenu de qualite et a le proposer librement.
+              Votre don est libre et sans contrepartie. Il contribue aux frais de logiciels et de matériel utilisés
+              pour mes projets photo et web. Merci pour votre soutien.
             </p>
             <div className="mt-6">
               <Link
-                href={paypalDonateUrl}
+                href={donationUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"

@@ -2,6 +2,7 @@
 import Link from "next/link";
 
 import { PageContainer } from "@/components/layout";
+import { SupportPassion } from "@/components/support-passion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, SectionTitle, Reveal } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import { labProjects } from "@/lib/labs-data";
@@ -78,6 +79,7 @@ export default function LabsPage() {
           </div>
         </section>
       </Reveal>
+      <SupportPassion />
     </PageContainer>
   );
 }
