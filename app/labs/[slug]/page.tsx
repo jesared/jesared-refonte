@@ -27,7 +27,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <section className="py-14 sm:py-20">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="space-y-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">Projet Lab</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">Réalisation web</p>
             <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">{project.title}</h1>
             <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               {project.longDescription}
@@ -57,7 +57,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 href="/labs"
                 className="inline-flex h-10 items-center justify-center rounded-md border border-border bg-background px-6 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                Retour aux labs
+                Retour aux projets web
               </Link>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 src={project.images[0]?.src ?? "/photographie/categories/produits.svg"}
                 alt={project.images[0]?.alt ?? `Aperçu ${project.title}`}
                 fill
-                className="object-cover"
+                className={project.slug === "cd51tt" ? "bg-white object-contain p-8" : "object-cover"}
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 priority
               />
@@ -135,26 +135,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="border-t border-border/60 py-12 sm:py-14">
-        <SectionTitle overline="Résultats">Résultats chiffrés</SectionTitle>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {project.metrics.map((metric) => (
-            <Card key={metric.label} className="border-border/70">
-              <CardHeader className="space-y-2">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/70">
-                  {metric.label}
-                </p>
-                <CardTitle className="text-2xl">{metric.value}</CardTitle>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
-      </section>
+      {project.metrics.length > 0 ? (
+        <section className="border-t border-border/60 py-12 sm:py-14">
+          <SectionTitle overline="Résultats">Résultats chiffrés</SectionTitle>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {project.metrics.map((metric) => (
+              <Card key={metric.label} className="border-border/70">
+                <CardHeader className="space-y-2">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/70">
+                    {metric.label}
+                  </p>
+                  <CardTitle className="text-2xl">{metric.value}</CardTitle>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
-      <section className="border-t border-border/60 py-12 sm:py-14">
-        <SectionTitle overline="Timeline">Dates & livrables</SectionTitle>
-        <div className="mt-8 space-y-6 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
-          {project.timeline.map((step, index) => {
+      {project.timeline.length > 0 ? (
+        <section className="border-t border-border/60 py-12 sm:py-14">
+          <SectionTitle overline="Timeline">Dates & livrables</SectionTitle>
+          <div className="mt-8 space-y-6 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
+            {project.timeline.map((step, index) => {
             const isActive = index === 0;
             const isLast = index === project.timeline.length - 1;
 
@@ -221,9 +224,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               </div>
             );
-          })}
-        </div>
-      </section>
+            })}
+          </div>
+        </section>
+      ) : null}
 
       <section className="border-t border-border/60 py-12 sm:py-14">
         <SectionTitle overline="Écrans">Images & captures</SectionTitle>

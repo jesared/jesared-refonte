@@ -24,11 +24,11 @@ export default async function PhotographiePage() {
       <Reveal>
         <section className="grid gap-10 py-16 sm:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <div className="space-y-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">Portfolio photo</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">Photographie par passion</p>
             <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Photographie</h1>
             <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Un portfolio pensé pour raconter chaque univers visuel avec clarté : nuit, sport, événementiel et
-              produit.
+              La photographie est un loisir qui me passionne. Je partage ici mes images de nuit, de sport,
+              d&apos;événements et quelques compositions personnelles.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -52,11 +52,10 @@ export default async function PhotographiePage() {
         <section className="border-t border-border/60 py-14 sm:py-16">
           <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-              Choisissez une galerie
+              Parcourir les galeries
             </h2>
             <p className="mt-2 text-sm text-muted-foreground sm:text-base">
-              Chaque catégorie dispose de sa propre page avec un hero dédié, une grille responsive
-              et un aperçu en plein écran.
+              Retrouvez les photos qui me tiennent à cœur, classées par univers.
             </p>
           </div>
 

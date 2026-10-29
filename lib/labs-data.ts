@@ -1,5 +1,5 @@
 export type LabProject = {
-  slug: "cctt-club" | "ortt" | "tropheefg";
+  slug: "cctt-club" | "ortt" | "tropheefg" | "cd51tt" | "chamelo-couture";
   title: string;
   shortDescription: string;
   longDescription: string;
@@ -165,6 +165,58 @@ export const labProjects: LabProject[] = [
         description: "Mise en ligne et ajustements finaux.",
       },
     ],
+  },
+  {
+    slug: "cd51tt",
+    title: "CD51TT",
+    shortDescription: "Le site du Comité de la Marne de tennis de table : actualités, compétitions, clubs et documents.",
+    longDescription:
+      "Un site institutionnel pour accompagner les clubs et les joueurs de la Marne. Les actualités, compétitions, informations sur les clubs et documents utiles sont rassemblés dans une interface claire, avec un accès rapide aux temps forts de la saison.",
+    role: "Conception et développement du site, crédités sur le site du comité.",
+    services: ["Conception du site", "Développement web", "Présentation des contenus"],
+    stack: ["Next.js"],
+    images: [
+      {
+        src: "/labs/cd51tt.png",
+        alt: "Logo du Comité Départemental de Tennis de Table de la Marne",
+      },
+    ],
+    siteUrl: "https://www.cd51tt.fr/",
+    dates: "Saison 2025 — 2026",
+    tags: ["Tennis de table", "Comité départemental", "Site institutionnel"],
+    highlights: [
+      "Actualités, compétitions et calendrier de la saison réunis sur le site.",
+      "Annuaire des clubs de la Marne et accès aux informations utiles.",
+      "Documents, formulaires et règlements accessibles depuis la navigation.",
+    ],
+    metrics: [],
+    timeline: [],
+  },
+  {
+    slug: "chamelo-couture",
+    title: "Cham'élo Couture",
+    shortDescription: "Un site vitrine pour un atelier de couture à Châlons-en-Champagne.",
+    longDescription:
+      "Un site vitrine pour présenter l’atelier Cham'élo Couture et ses prestations : retouches de vêtements, cours particuliers et broderie personnalisée. Les visiteurs peuvent découvrir les réalisations, consulter les tarifs et contacter l’atelier pour un devis ou une réservation.",
+    role: "Conception et développement du site vitrine.",
+    services: ["Site vitrine", "Présentation des prestations", "Mise en valeur des réalisations"],
+    stack: ["Next.js"],
+    images: [
+      {
+        src: "/labs/chamelo-couture.png",
+        alt: "Visuel de présentation du site Cham'élo Couture",
+      },
+    ],
+    siteUrl: "https://www.chamelocouture.fr/",
+    dates: "En ligne",
+    tags: ["Artisanat", "Couture", "Site vitrine"],
+    highlights: [
+      "Présentation des retouches, des cours de couture et des broderies personnalisées.",
+      "Tarifs et informations pratiques consultables directement sur le site.",
+      "Galerie de réalisations et accès aux demandes de contact et de réservation.",
+    ],
+    metrics: [],
+    timeline: [],
   },
 ];
 

@@ -22,9 +22,9 @@ export const photographyCategories: PhotographyCategory[] = [
   {
     slug: "discotheque",
     title: "Discothèque",
-    description: "Ambiances nocturnes et énergie de la piste.",
+    description: "Lumières, couleurs et énergie de la nuit.",
     heroDescription:
-      "Des images immersives qui capturent les lumières, les contrastes et la dynamique de la nuit.",
+      "Les lumières, les contrastes et l'énergie de la piste, saisis au fil des soirées.",
     coverImage: "/photographie/categories/discotheque.svg",
   },
   {
@@ -32,23 +32,23 @@ export const photographyCategories: PhotographyCategory[] = [
     title: "Sport",
     description: "Action, précision et intensité en mouvement.",
     heroDescription:
-      "Une approche rythmée pour figer les moments-clés : performance, effort et émotion sportive.",
+      "Des moments de jeu, d'effort et d'émotion sportive capturés au bord du terrain.",
     coverImage: "/photographie/categories/sport.svg",
   },
   {
     slug: "evenement",
     title: "Événements",
-    description: "Moments humains et atmosphères marquantes.",
+    description: "Rencontres, instants partagés et atmosphères.",
     heroDescription:
-      "Reportage photo pensé pour raconter vos temps forts avec naturel, élégance et cohérence visuelle.",
+      "Des instants partagés et des ambiances que j'aime garder en images.",
     coverImage: "/photographie/categories/evenements.svg",
   },
   {
     slug: "produit",
     title: "Produits",
-    description: "Visuels soignés orientés marque et conversion.",
+    description: "Objets, matières et compositions personnelles.",
     heroDescription:
-      "Des compositions propres et minimalistes pour mettre en valeur la matière, la forme et l'identité produit.",
+      "Quelques compositions pour explorer la lumière, les formes et les matières.",
     coverImage: "/photographie/categories/produits.svg",
   },
 ];

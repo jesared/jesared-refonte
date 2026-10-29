@@ -1,244 +1,299 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 
 import { PageContainer } from "@/components/layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, Reveal } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
-const univers = [
+const photoUnivers = [
   {
-    title: "Photographie",
+    title: "Événements",
     description:
-      "Séries photo et reportages visuels pour raconter des histoires sensibles et lumineuses.",
+      "Capter l’ambiance, les temps forts et les détails qui donnent une vraie mémoire à la journée.",
+    href: "/photographie/evenement",
+  },
+  {
+    title: "Sport",
+    description:
+      "Montrer l’intensité, le rythme et l’énergie du terrain avec des images lisibles et vivantes.",
+    href: "/photographie/sport",
+  },
+  {
+    title: "Famille",
+    description:
+      "Créer des images simples, spontanées et durables, centrées sur les liens et les présences.",
     href: "/photographie",
-  },
-  {
-    title: "Labs",
-    description:
-      "Découvrez mes projets web, expérimentations et outils construits pour des expériences fluides.",
-    href: "/labs",
-  },
-  {
-    title: "Contact",
-    description:
-      "Parlons de votre idée, d'une collaboration ou d'un besoin en création de site moderne.",
-    href: "/contact",
   },
 ];
 
-const projetsRecents = [
+const reperes = [
+  {
+    title: "Reportage sensible",
+    description: "Une approche naturelle pour raconter sans figer ni surjouer.",
+  },
+  {
+    title: "Événementiel",
+    description: "Soirées, rencontres et temps forts à garder vivants.",
+  },
+  {
+    title: "Sport",
+    description: "Des images qui tiennent le rythme, l’effort et la tension du moment.",
+  },
+  {
+    title: "Famille",
+    description: "Des souvenirs sincères et durables, pensés pour traverser le temps.",
+  },
+];
+
+const approche = [
+  {
+    title: "Observer",
+    description: "Comprendre le rythme du moment, les personnes et ce qui doit ressortir sans le forcer.",
+  },
+  {
+    title: "Cadrer",
+    description: "Chercher une image nette dans l’émotion, avec une vraie lisibilité du geste et de la présence.",
+  },
+  {
+    title: "Raconter",
+    description: "Construire une série d’images qui garde une ambiance, une énergie et une mémoire durable.",
+  },
+];
+
+const labs = [
+  {
+    title: "Trophée François Grieder",
+    description:
+      "Un site dédié au tournoi, avec les informations utiles aux joueurs et aux clubs participants.",
+    href: "/labs/tropheefg",
+    image: "/labs/tfg-home.png",
+  },
   {
     title: "CCTT Club",
-    description: "Site club complet avec actualités, infos pratiques et vie associative.",
+    description:
+      "Un site de club pour retrouver les actualités, les informations pratiques et la vie associative.",
     href: "/labs/cctt-club",
     image: "/labs/cctt-home.png",
   },
   {
     title: "Olympique Remois TT",
-    description: "Site moderne et clair pour valoriser le club et ses activités.",
+    description:
+      "Un site clair pour présenter le club, ses activités et ses actualités.",
     href: "/labs/ortt",
     image: "/labs/ortt-home.png",
   },
   {
-    title: "Trophée François Grieder",
-    description: "Refonte du site du tournoi et outils pour simplifier l'organisation.",
-    href: "/labs/tropheefg",
-    image: "/labs/tfg-home.png",
-  },
-];
-
-const services = [
-  {
-    title: "Direction artistique",
-    description: "Des identités élégantes et cohérentes, pensées pour durer.",
+    title: "CD51TT",
+    description:
+      "Le site du Comité de la Marne de tennis de table : actualités, compétitions, clubs et documents utiles.",
+    href: "/labs/cd51tt",
+    image: "/labs/cd51tt.png",
   },
   {
-    title: "Design & expérience",
-    description: "Des parcours clairs, des interactions fluides et une hiérarchie solide.",
-  },
-  {
-    title: "Développement web",
-    description: "Des sites rapides, fiables et optimisés pour le référencement.",
-  },
-];
-
-const principes = [
-  {
-    title: "Clarté radicale",
-    description: "Chaque écran doit guider l’utilisateur sans friction ni bruit visuel.",
-  },
-  {
-    title: "Émotion maîtrisée",
-    description: "Des contrastes subtils et une typographie expressive pour marquer les esprits.",
-  },
-  {
-    title: "Performance réelle",
-    description: "Optimisations techniques et contenus ciblés pour des pages qui convertissent.",
+    title: "Cham'élo Couture",
+    description:
+      "Un site vitrine pour découvrir les retouches, les cours de couture et les broderies de l’atelier.",
+    href: "/labs/chamelo-couture",
+    image: "/labs/chamelo-couture.png",
   },
 ];
 
 export default function Home() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <PageContainer>
-        <section className="relative py-16 sm:py-24">
-          <div className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <section className="py-12 sm:py-16 lg:py-20">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <Reveal delay={0}>
-              <div className="flex flex-col gap-6 text-left">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">
-                Studio digital
-              </p>
+              <div className="space-y-9 lg:pr-12 lg:pt-10">
+                <div className="space-y-6">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/78">
+                    Photographie & web, par passion
+                  </p>
 
-              <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-                Des expériences digitales modernes, élégantes et pensées pour durer.
-              </h1>
+                  <div className="space-y-3">
+                    <p className="text-4xl leading-none tracking-tight sm:text-5xl lg:text-[4.3rem] [font-family:var(--font-display)]">
+                      J&eacute;r&ocirc;me Henry
+                    </p>
+                    <p className="text-sm font-medium tracking-[0.08em] text-foreground/62">
+                      Passionn&eacute; de photographie et de cr&eacute;ation web
+                    </p>
+                  </div>
 
-              <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Je conçois des univers visuels minimalistes qui mettent vos idées au centre,
-                avec une navigation fluide sur tous les écrans.
-              </p>
+                  <h1 className="max-w-md text-2xl leading-snug tracking-tight text-foreground/88 sm:text-3xl lg:text-[2.3rem] [font-family:var(--font-display)]">
+                    Deux passions, un même goût pour l’image et la création.
+                  </h1>
 
-              <div className="flex flex-wrap items-center gap-2">
-                {[
-                  "UI/UX",
-                  "Design éditorial",
-                  "Web performant",
-                ].map((label) => (
-                  <span
-                    key={label}
-                    className="badge-accent rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
+                  <p className="max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    Je photographie sur mon temps libre et je conçois des projets web par hobby. Je partage ici
+                    mes images et quelques réalisations web.
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-4">
+                  <Link
+                    href="/labs"
+                    className={cn(
+                      "inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                      "bg-primary text-primary-foreground hover:bg-primary/90"
+                    )}
                   >
-                    {label}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Link
-                  href="/labs"
-                  className={cn(
-                    "inline-flex h-11 items-center justify-center rounded-md px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cta-pulse",
-                    "bg-primary text-primary-foreground hover:bg-primary/90"
-                  )}
-                >
-                  Explorer les projets
-                </Link>
-                <Link
-                  href="/contact"
-                  className={cn(
-                    "inline-flex h-11 items-center justify-center rounded-md border bg-background px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                    "hover:bg-accent hover:text-accent-foreground"
-                  )}
-                >
-                  Discuter d’un projet
-                </Link>
-              </div>
+                    Voir mes projets web
+                  </Link>
+                  <Link
+                    href="/photographie"
+                    className={cn(
+                      "inline-flex items-center text-sm font-medium text-foreground/74 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring hover:text-primary"
+                    )}
+                  >
+                    Voir les galeries photo
+                  </Link>
+                </div>
               </div>
             </Reveal>
 
             <Reveal delay={120}>
-              <div className="relative">
-                <div className="rounded-3xl border border-border/70 bg-card p-6 shadow-sm card-hover float-slow">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
-                  Focus du mois
-                </p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-tight">
-                  Trophée François Grieder
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Refonte d’un portail sportif avec un agenda clair, des inscriptions simplifiées et des tableaux
-                  intelligents.
-                </p>
-                <div className="mt-4 overflow-hidden rounded-2xl border border-border/60">
-                  <Image
-                    src="/labs/tfg-home.png"
-                    alt="Aperçu du site Trophée François Grieder"
-                    width={640}
-                    height={420}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <Link
-                  href="/labs/tropheefg"
-                  className="mt-4 inline-flex items-center text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
-                >
-                  Voir le projet →
-                </Link>
-                </div>
+              <div className="grid grid-cols-2 gap-4">
+                {labs.slice(-2).map((projet) => (
+                  <Link
+                    key={projet.title}
+                    href={projet.href}
+                    className="group overflow-hidden rounded-[1.75rem] border border-border/70 bg-card shadow-sm transition-transform hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <Image
+                        src={projet.image}
+                        alt={`Aperçu du projet ${projet.title}`}
+                        fill
+                        className={`${projet.title === "CD51TT" ? "bg-white object-contain p-4" : "object-cover"} transition-transform duration-500 group-hover:scale-[1.04]`}
+                        sizes="(min-width: 1024px) 25vw, 50vw"
+                        priority
+                      />
+                    </div>
+                    <div className="p-4 sm:p-5">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-primary/75">
+                        Projet web
+                      </p>
+                      <h2 className="mt-2 text-lg font-semibold leading-snug sm:text-xl">{projet.title}</h2>
+                      <p className="mt-2 text-sm text-muted-foreground">Découvrir le projet <span aria-hidden="true">→</span></p>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </Reveal>
           </div>
+
+          <Reveal delay={160}>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              {reperes.map((repere, index) => (
+                <Reveal key={repere.title} delay={index * 70}>
+                  <div className="rounded-[1.35rem] border border-border/65 bg-background/85 p-5">
+                    <p className="text-sm font-semibold text-foreground">{repere.title}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{repere.description}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </Reveal>
         </section>
 
-        <Reveal delay={80}>
-          <section className="grid gap-6 border-y border-border/60 py-14 sm:grid-cols-2 sm:gap-8">
-            <div className="space-y-3">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">Manifeste</p>
-              <h2 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-                Des univers lisibles, sensibles et efficaces.
-              </h2>
-            </div>
-            <p className="text-base leading-relaxed text-muted-foreground sm:pt-6">
-              Je travaille entre direction artistique et exécution technique, avec une obsession pour la clarté :
-              moins d’écrans, plus d’impact. L’objectif est d’offrir des parcours fluides, esthétiques et réellement
-              utiles.
-            </p>
-          </section>
-        </Reveal>
-
         <Reveal delay={120}>
-          <section className="py-14 sm:py-16">
-            <div className="mb-8 space-y-3">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">Services</p>
-              <h2 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-                Ce que je construis
+          <section className="border-t border-border/60 py-16 sm:py-20">
+            <div className="mb-8 max-w-3xl space-y-3">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">Projets web</p>
+              <h2 className="text-4xl leading-tight tracking-tight sm:text-5xl [font-family:var(--font-display)]">
+                Des réalisations concrètes, faites par passion.
               </h2>
+              <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Le web est aussi un hobby : voici des sites et projets que j&apos;ai conçus par curiosité et intérêt
+                pour le design, les clubs et les expériences utiles.
+              </p>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {services.map((service, index) => (
-                <Reveal key={service.title} delay={index * 80}>
-                  <Card className="border-border/70 card-hover">
-                    <CardHeader className="space-y-2">
-                      <CardTitle className="text-xl">{service.title}</CardTitle>
-                      <CardDescription className="text-sm leading-relaxed sm:text-base">
-                        {service.description}
-                      </CardDescription>
-                    </CardHeader>
+            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              {labs.map((projet, index) => (
+                <Reveal key={projet.title} delay={index * 70}>
+                  <Card className="panel-glass group h-full overflow-hidden border-border/60 py-0">
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <Image
+                        src={projet.image}
+                        alt={`Aperçu du projet ${projet.title}`}
+                        fill
+                        className={`${projet.title === "CD51TT" ? "bg-white object-contain p-5" : "object-cover"} transition-transform duration-500 group-hover:scale-[1.03]`}
+                        sizes="(min-width: 1280px) 30vw, (min-width: 640px) 45vw, 100vw"
+                      />
+                      <div className="absolute inset-0 bg-black/10" />
+                    </div>
+                    <div className="bg-card p-6">
+                      <CardHeader className="space-y-3 px-0">
+                        <CardTitle className="text-2xl leading-tight [font-family:var(--font-display)]">
+                          {projet.title}
+                        </CardTitle>
+                        <CardDescription className="text-sm leading-relaxed sm:text-base">
+                          {projet.description}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="px-0 pt-4">
+                        <Link
+                          href={projet.href}
+                          className="inline-flex items-center text-sm font-medium text-foreground/80 transition-colors group-hover:text-primary"
+                        >
+                          Découvrir le projet <span className="ml-1" aria-hidden="true">→</span>
+                        </Link>
+                      </CardContent>
+                    </div>
                   </Card>
                 </Reveal>
               ))}
+            </div>
+
+            <div className="mt-8 flex justify-center">
+              <Link
+                href="/labs"
+                className="inline-flex h-11 items-center justify-center rounded-full border border-border bg-background px-6 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+              >
+                Voir tous les projets web
+              </Link>
             </div>
           </section>
         </Reveal>
 
         <Reveal delay={140}>
-          <section className="py-14 sm:py-16">
-            <div className="mb-8 space-y-3">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">Univers</p>
-              <h2 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-                Découvrez mes univers
+          <section className="border-t border-border/60 py-16 sm:py-20">
+            <div className="mb-8 max-w-3xl space-y-3">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">Univers photo</p>
+              <h2 className="text-4xl leading-tight tracking-tight sm:text-5xl [font-family:var(--font-display)]">
+                Trois univers, une même exigence de regard.
               </h2>
+              <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Que je photographie un événement, un moment sportif ou une scène du quotidien, je cherche des images
+                qui racontent sans surjouer : une énergie, une présence, une atmosphère, un lien.
+              </p>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {univers.map((item, index) => (
+            <div className="grid gap-5 lg:grid-cols-3">
+              {photoUnivers.map((item, index) => (
                 <Reveal key={item.title} delay={index * 80}>
-                  <Card className="group border-border/70 card-hover">
-                    <CardHeader className="space-y-3">
-                      <CardTitle className="text-2xl">{item.title}</CardTitle>
-                      <CardDescription className="text-sm leading-relaxed sm:text-base">
-                        {item.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <Link
-                        href={item.href}
-                        className="inline-flex items-center text-sm font-medium text-foreground/80 transition-colors group-hover:text-primary"
-                      >
-                        Voir l’univers →
-                      </Link>
-                    </CardContent>
+                  <Card className="panel-glass group h-full border-border/60 py-0">
+                    <div className="h-full bg-card p-6">
+                      <CardHeader className="space-y-3 px-0">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/75">
+                          0{index + 1}
+                        </p>
+                        <CardTitle className="text-2xl [font-family:var(--font-display)]">{item.title}</CardTitle>
+                        <CardDescription className="text-sm leading-relaxed sm:text-base">
+                          {item.description}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="px-0 pt-4">
+                        <Link
+                          href={item.href}
+                          className="inline-flex items-center text-sm font-medium text-foreground/80 transition-colors group-hover:text-primary"
+                        >
+                          Voir la galerie
+                        </Link>
+                      </CardContent>
+                    </div>
                   </Card>
                 </Reveal>
               ))}
@@ -247,113 +302,97 @@ export default function Home() {
         </Reveal>
 
         <Reveal delay={160}>
-        <section className="border-t border-border/60 py-14 sm:py-16">
-          <div className="mb-8 space-y-3">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
-              Projets récents
-            </p>
-            <h2 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-              Une sélection de réalisations récentes.
-            </h2>
-          </div>
+          <section className="border-t border-border/60 py-16 sm:py-20">
+            <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+              <div className="space-y-5">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">Approche</p>
+                <h2 className="text-4xl leading-tight tracking-tight sm:text-5xl [font-family:var(--font-display)]">
+                  Une photographie vivante, lisible et sensible.
+                </h2>
+                <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  Je cherche des images qui racontent sans surjouer. Un geste, une lumière, une présence, une
+                  tension, un calme : chaque série doit garder quelque chose de vrai, sans rigidité ni effet forcé.
+                </p>
+              </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {projetsRecents.map((projet, index) => (
-              <Reveal key={projet.title} delay={index * 80}>
-                <Card className="group overflow-hidden border-border/70 card-hover">
-                  <div className="relative aspect-[4/3] overflow-hidden image-reveal">
-                    <Image
-                      src={projet.image}
-                      alt={`Aperçu du projet ${projet.title}`}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                    />
+              <div className="panel-glass overflow-hidden rounded-[2rem] p-4">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem]">
+                  <Image
+                    src="/photos/discotheque/photo1.jpg"
+                    alt="Ambiance reportage"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 38vw, 100vw"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 grid gap-4 xl:grid-cols-3">
+              {approche.map((etape, index) => (
+                <Reveal key={etape.title} delay={index * 80}>
+                  <div className="timeline-card rounded-[1.6rem] p-6">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/80">
+                      0{index + 1}
+                    </p>
+                    <h3 className="mt-4 text-3xl leading-tight tracking-tight [font-family:var(--font-display)]">
+                      {etape.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                      {etape.description}
+                    </p>
                   </div>
-                  <CardHeader className="space-y-3">
-                    <CardTitle className="text-xl leading-snug">{projet.title}</CardTitle>
-                    <CardDescription className="text-sm leading-relaxed sm:text-base">
-                      {projet.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Link
-                      href={projet.href}
-                      className={cn(
-                        "inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                        "bg-primary text-primary-foreground hover:bg-primary/90"
-                      )}
-                    >
-                      Voir le projet
-                    </Link>
-                  </CardContent>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-        </Reveal>
-
-        <Reveal delay={180}>
-        <section className="border-t border-border/60 py-14 sm:py-16">
-          <div className="mb-8 space-y-3">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">Principes</p>
-            <h2 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-              Ce qui guide chaque projet
-            </h2>
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {principes.map((principe, index) => (
-              <Reveal key={principe.title} delay={index * 80}>
-                <Card className="border-border/70 card-hover">
-                  <CardHeader className="space-y-3">
-                    <CardTitle className="text-xl">{principe.title}</CardTitle>
-                    <CardDescription className="text-sm leading-relaxed sm:text-base">
-                      {principe.description}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-        </section>
+                </Reveal>
+              ))}
+            </div>
+          </section>
         </Reveal>
 
         <Reveal delay={200}>
-          <section className="border-t border-border/60 py-14 sm:py-16">
-            <div className="grid items-center gap-8 rounded-3xl border border-border/70 bg-card p-8 shadow-sm sm:p-12 lg:grid-cols-[1.2fr_0.8fr] card-hover">
-              <div className="space-y-4">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
-                  Projet en tête
-                </p>
-                <h2 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-                  Une nouvelle refonte, une identité claire et une présence digitale solide.
-                </h2>
-                <p className="text-base leading-relaxed text-muted-foreground">
-                  Parlons de votre objectif, du rythme et des contraintes. Je propose une approche directe,
-                  structurée et orientée résultat.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  href="/contact"
-                  className={cn(
-                    "inline-flex h-11 items-center justify-center rounded-md px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cta-pulse",
-                    "bg-primary text-primary-foreground hover:bg-primary/90"
-                  )}
-                >
-                  Démarrer un projet
-                </Link>
-                <Link
-                  href="/labs"
-                  className={cn(
-                    "inline-flex h-11 items-center justify-center rounded-md border bg-background px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                    "hover:bg-accent hover:text-accent-foreground"
-                  )}
-                >
-                  Voir les projets
-                </Link>
+          <section className="py-16 sm:py-20">
+            <div className="relative overflow-hidden rounded-[2.25rem] border border-border/70 bg-card p-8 shadow-[0_30px_80px_-48px_rgba(15,23,42,0.38)] sm:p-12">
+              <div className="relative grid items-center gap-8 lg:grid-cols-[1.18fr_0.82fr]">
+                <div className="space-y-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">Contact</p>
+                  <h2 className="text-4xl leading-tight tracking-tight sm:text-5xl [font-family:var(--font-display)]">
+                    La photo est une passion que j’aime partager.
+                  </h2>
+                  <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    Événements, sport, instants du quotidien : je partage ici les images que je prends par plaisir,
+                    au fil des rencontres et des occasions.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="metric-card rounded-[1.7rem] p-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/80">Une passion personnelle</p>
+                    <p className="mt-3 text-sm leading-relaxed text-foreground/85">
+                      Je photographie sur mon temps libre, sans activité commerciale ni prestation.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      href="/contact"
+                      className={cn(
+                        "inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cta-pulse",
+                        "bg-primary text-primary-foreground hover:bg-primary/90"
+                      )}
+                    >
+                      Échanger
+                    </Link>
+                    <Link
+                      href="/photographie"
+                      className={cn(
+                        "inline-flex h-11 items-center justify-center rounded-full border bg-background px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                        "hover:bg-accent hover:text-accent-foreground"
+                      )}
+                    >
+                      Voir les galeries
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </section>

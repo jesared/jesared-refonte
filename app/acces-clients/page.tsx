@@ -10,8 +10,8 @@ const paypalDonateUrl =
   "https://www.paypal.com/donate?hosted_button_id=7X4G2TKAQC2Q4";
 
 export const metadata: Metadata = {
-  title: "Acces clients",
-  description: "Retrouvez les galeries photo publiques et privees, avec telechargement libre et soutien PayPal.",
+  title: "Galeries photo",
+  description: "Retrouvez les galeries photo publiques et privées, avec téléchargement libre et soutien facultatif.",
 };
 
 export default function AccesClientsPage() {
@@ -21,11 +21,11 @@ export default function AccesClientsPage() {
         <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-3xl space-y-5 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">Galeries photo</p>
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Acces clients</h1>
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Galeries photo</h1>
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-              L&apos;ensemble des photos est disponible ici, avec des galeries publiques et des galeries privees selon
-              les reportages. Les images peuvent etre proposees en telechargement libre, avec un soutien PayPal
-              possible pour celles et ceux qui souhaitent encourager ce travail.
+              Je rassemble ici les galeries publiques et celles partagées avec les personnes présentes lors des
+              événements. Les photos sont disponibles librement ; un soutien facultatif permet à celles et ceux qui
+              le souhaitent d&apos;encourager cette passion.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
@@ -56,7 +56,7 @@ export default function AccesClientsPage() {
           </div>
           <div className="rounded-2xl border border-border/70 bg-card/95 p-5 shadow-sm">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/70">Prive</p>
-            <p className="mt-2 text-lg font-semibold">Galeries reservees aux clients</p>
+            <p className="mt-2 text-lg font-semibold">Galeries partagées avec les participants</p>
           </div>
           <div className="rounded-2xl border border-border/70 bg-card/95 p-5 shadow-sm">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/70">Telechargement</p>
@@ -72,7 +72,7 @@ export default function AccesClientsPage() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/70">
                 Galeries JINGOO
               </p>
-              <CardTitle className="text-2xl tracking-tight sm:text-3xl">Acces aux galeries publiques et privees</CardTitle>
+              <CardTitle className="text-2xl tracking-tight sm:text-3xl">Accéder aux galeries publiques et privées</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="rounded-2xl border border-border/70 bg-background/60 px-4 py-6 sm:px-6">

@@ -12,10 +12,10 @@ export default function LabsPage() {
       <Reveal>
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-3xl space-y-6 text-center">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">Labs</p>
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Labs</h1>
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">Réalisations personnelles</p>
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Projets web</h1>
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Cette section présente mes projets, expérimentations et outils web.
+              Des sites et projets web conçus par hobby, autour des clubs, des événements et des activités qui m&apos;inspirent.
             </p>
           </div>
         </section>
@@ -23,7 +23,7 @@ export default function LabsPage() {
 
       <Reveal delay={120}>
         <section className="border-t border-border/60 py-14 sm:py-16">
-          <SectionTitle overline="Projets">Projets & expérimentations</SectionTitle>
+          <SectionTitle overline="Réalisations">Sites web et projets personnels</SectionTitle>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {labProjects.map((project, index) => (
@@ -34,7 +34,7 @@ export default function LabsPage() {
                       src={project.images[0]?.src ?? "/photographie/categories/produits.svg"}
                       alt={project.images[0]?.alt ?? `Aperçu du projet ${project.title}`}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      className={`${project.slug === "cd51tt" ? "bg-white object-contain p-5" : "object-cover"} transition-transform duration-500 group-hover:scale-[1.03]`}
                       sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
                     />
                     <div

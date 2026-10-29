@@ -33,7 +33,7 @@ export default function ContactPage() {
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">Contact</p>
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Contact</h1>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Si vous souhaitez discuter d’un projet ou d’une collaboration, vous pouvez me contacter.
+            Une photo vous a plu ou vous souhaitez simplement échanger ? Vous pouvez m’écrire ici.
           </p>
         </div>
       </section>
@@ -112,7 +112,7 @@ export default function ContactPage() {
                   name="message"
                   rows={5}
                   className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none transition focus-visible:ring-2 focus-visible:ring-ring"
-                  placeholder="Dites-moi en plus sur votre projet..."
+                  placeholder="Laissez-moi un message..."
                 />
               </div>
 
